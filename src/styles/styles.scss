@@ -1,0 +1,11 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import "./lib/colors";
+@import "./base/buttons";
+@import "./base/form";
+
+.div-flex {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+}
