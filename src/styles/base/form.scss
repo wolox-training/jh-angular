@@ -4,7 +4,7 @@
 .content-input {
   display: flex;
   flex-flow: column nowrap;
-  margin: 16px 0;
+  margin: 15px 0;
   width: inherit;
 }
 
@@ -12,14 +12,14 @@ input {
   background-color: $color-white;
   border: none;
   border-radius: 5px;
-  height: 32px;
-  margin-top: 8px;
+  height: 30px;
+  margin-top: 10px;
+  max-width: 250px;
   width: 100%;
-  max-width: 248px;
 }
 
 label {
-  height: 22px;
+  height: 20px;
   width: 100%;
 }
 

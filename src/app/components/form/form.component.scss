@@ -1,7 +1,7 @@
 @import "src/styles/styles.scss";
 
 button {
-  margin: 16px 24px 0;
+  margin: 15px 25px 25px 25px;
 }
 
 .container {
@@ -12,17 +12,16 @@ button {
   margin: auto;
   margin-top: 50px;
   max-width: $width-form;
-  height: 634px;
   width: 100%;
 
   .form {
     border-bottom: 2px solid $color-grey-line;
-    margin: 0 24px;
+    margin: 0 25px;
   }
 }
 
 .logo-wolox {
   height: 70px;
   margin: 20px 0 0 45px;
-  width: 212.42px;
+  width: 210px;
 }
