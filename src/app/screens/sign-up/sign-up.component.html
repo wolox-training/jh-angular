@@ -1,8 +1,36 @@
-<div class="div-flex content">
-  <div class="form-content">
-    <div class="line"></div>
-    <div class="div-flex image-brand">
-      <img src="assets/images/logo_wolox.svg" width="300px">
+<app-form>
+
+  <form (ngSubmit)="signUp()">
+    <div class="content-input">
+      <label for="name">Nombre</label>
+      <input type="text" [(ngModel)]="signUpForm.name" [ngModelOptions]="{ standalone: true}">
     </div>
-  </div>
-</div>
+
+    <div class="content-input">
+      <label for="lastname">Apellido</label>
+      <input type="text" [(ngModel)]="signUpForm.lastname" [ngModelOptions]="{ standalone: true}">
+    </div>
+
+    <div class="content-input">
+      <label for="email">Email</label>
+      <input type="email" [(ngModel)]="signUpForm.email" [ngModelOptions]="{ standalone: true}">
+    </div>
+
+    <div class="content-input">
+      <label for="password">Password</label>
+      <input type="password" [(ngModel)]="signUpForm.password" [ngModelOptions]="{ standalone: true}">
+    </div>
+
+    <div class="content-input">
+      <label for="confirmPassword">Confirmación de Password</label>
+      <input type="password" [(ngModel)]="signUpForm.confirmPassword" [ngModelOptions]="{ standalone: true}">
+    </div>
+
+    <div class="section-buttons">
+      <button class="btn-fill" type="submit">Sign Up</button>
+      <div class="line-button"></div>
+      <button class="btn-border" type="button" routerLink="/login">Login</button>
+    </div>
+  </form>
+
+</app-form>

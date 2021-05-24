@@ -1,31 +1,17 @@
 @import "src/styles/styles.scss";
 
-.content {
-  width: 100%;
-  max-width: 2000px;
-}
-
-.form-content {
-  background-color: $color-grey;
-  height: 500px;
-  margin-top: 50px;
-  width: 500px;
-  max-width: 100%;
-}
-
-.image-brand {
-  height: 200px;
-  width: inherit;
+.line-button {
+  background-color: $color-grey-line;
+  height: 2px;
+  margin: 16px 0;
   max-width: inherit;
-
-  .img {
-    width: 200px;
-  }
-}
-
-.line {
-  background-color: $color-brand-blue;
-  height: 10px;
   width: inherit;
-  max-width: inherit;
 }
+
+.section-buttons {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-items: center;
+  margin: 24px 0;
+}
+
