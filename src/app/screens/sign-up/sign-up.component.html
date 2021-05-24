@@ -1,30 +1,9 @@
 <app-form [buttonLabel]="'Login'" [buttonRoute]="'/login'">
   <form class="form" (ngSubmit)="signUp()">
-    <div class="content-input">
-      <label for="name">Nombre</label>
-      <input type="text" [(ngModel)]="signUpForm.name" [ngModelOptions]="{ standalone: true}">
+    <div class="content-input" *ngFor="let field of fields">
+      <label [for]="field.name">{{field.label}}</label>
+      <input [type]="field.type" [(ngModel)]="signUpForm[field.name]" [ngModelOptions]="{ standalone: true}">
     </div>
-
-    <div class="content-input">
-      <label for="lastname">Apellido</label>
-      <input type="text" [(ngModel)]="signUpForm.lastname" [ngModelOptions]="{ standalone: true}">
-    </div>
-
-    <div class="content-input">
-      <label for="email">Email</label>
-      <input type="email" [(ngModel)]="signUpForm.email" [ngModelOptions]="{ standalone: true}">
-    </div>
-
-    <div class="content-input">
-      <label for="password">Password</label>
-      <input type="password" [(ngModel)]="signUpForm.password" [ngModelOptions]="{ standalone: true}">
-    </div>
-
-    <div class="content-input">
-      <label for="confirmPassword">Confirmación de Password</label>
-      <input type="password" [(ngModel)]="signUpForm.confirmPassword" [ngModelOptions]="{ standalone: true}">
-    </div>
-
     <button class="btn-fill" type="submit">Sign Up</button>
   </form>
 </app-form>
