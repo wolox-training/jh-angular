@@ -1,0 +1,34 @@
+@import "src/styles/styles.scss";
+
+.content {
+  max-width: 2000px;
+  width: 100%;
+}
+
+.form-content {
+  background-color: $color-grey;
+  border-top: 8px solid $color-brand-blue;
+  margin-top: 50px;
+  max-width: 100%;
+  width: $width-form;
+  
+  .form {
+    margin: 24px;
+    max-width: 252px;
+    width: 100%;
+  }
+}
+
+.image-brand {
+  margin-top: 28px;
+  max-width: inherit;
+  width: inherit;
+
+  .logo-wolox {
+    height: 70px;
+    width: 212.42px;
+  }
+}
+
+
+
