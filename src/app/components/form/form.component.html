@@ -1,11 +1,7 @@
-<div class="div-flex content">
-  <div class="form-content">
-    <div class="div-flex image-brand">
-      <img class="logo-wolox" src="assets/images/logo_wolox.svg">
-    </div>
-
-    <div class="form">
-      <ng-content></ng-content>
-    </div>
+<div class="container">
+  <img class="logo-wolox" src="assets/images/logo_wolox.svg" alt="Logo Wolox">
+  <div class="form">
+    <ng-content></ng-content>
   </div>
+  <button class="btn-border" type="button" [routerLink]="buttonRoute">{{buttonLabel}}</button>
 </div>

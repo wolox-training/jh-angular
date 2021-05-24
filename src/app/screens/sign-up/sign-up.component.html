@@ -1,6 +1,5 @@
-<app-form>
-
-  <form (ngSubmit)="signUp()">
+<app-form [buttonLabel]="'Login'" [buttonRoute]="'/login'">
+  <form class="form" (ngSubmit)="signUp()">
     <div class="content-input">
       <label for="name">Nombre</label>
       <input type="text" [(ngModel)]="signUpForm.name" [ngModelOptions]="{ standalone: true}">
@@ -26,11 +25,6 @@
       <input type="password" [(ngModel)]="signUpForm.confirmPassword" [ngModelOptions]="{ standalone: true}">
     </div>
 
-    <div class="section-buttons">
-      <button class="btn-fill" type="submit">Sign Up</button>
-      <div class="line-button"></div>
-      <button class="btn-border" type="button" routerLink="/login">Login</button>
-    </div>
+    <button class="btn-fill" type="submit">Sign Up</button>
   </form>
-
 </app-form>

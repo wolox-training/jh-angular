@@ -1,17 +1,5 @@
 @import "src/styles/styles.scss";
 
-.line-button {
-  background-color: $color-grey-line;
-  height: 2px;
-  margin: 16px 0;
-  max-width: inherit;
-  width: inherit;
+button {
+  margin: 8px auto 16px auto;
 }
-
-.section-buttons {
-  display: flex;
-  flex-flow: column nowrap;
-  justify-items: center;
-  margin: 24px 0;
-}
-
