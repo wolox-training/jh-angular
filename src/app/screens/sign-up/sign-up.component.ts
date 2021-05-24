@@ -12,9 +12,6 @@ export class SignUpComponent implements OnInit {
 
   signUpForm: SignUp = { name: '', lastname: '', email: '', password: '', confirmPassword: '' };
 
-  constructor() {
-  }
-
   ngOnInit(): void {
   }
 
