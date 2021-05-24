@@ -5,8 +5,8 @@ button {
 }
 
 .container {
-  background-color: $color-grey;
-  border-top: 8px solid $color-brand-blue;
+  background-color: $wild-sand;
+  border-top: 8px solid $cerulean;
   display: flex;
   flex-flow: column nowrap;
   margin: auto;
@@ -15,7 +15,7 @@ button {
   width: 100%;
 
   .form {
-    border-bottom: 2px solid $color-grey-line;
+    border-bottom: 2px solid $silver-chalice;
     margin: 0 25px;
   }
 }
