@@ -1,0 +1,29 @@
+@import "/src/styles/lib/colors.scss";
+@import "/src/styles/lib/variables.scss";
+
+/*
+* Buttons
+*/ 
+
+.btn-border {
+  background-color: $color-grey;
+  border: 2px solid $color-brand-green;
+  color: $color-brand-green;
+}
+
+.btn-fill {
+  background-color: $color-brand-green;
+  color: $color-white;
+}
+
+button {
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: $font-family;
+  font-size: $font-size;
+  height: 32px;
+  width: 252px;
+}
+
+

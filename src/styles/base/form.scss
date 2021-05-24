@@ -1,0 +1,30 @@
+@import "/src/styles/lib/colors.scss";
+@import "/src/styles/lib/variables.scss";
+
+.content-input {
+  display: flex;
+  flex-flow: column nowrap;
+  margin: 16px 0;
+  width: inherit;
+}
+
+input {
+  background-color: $color-white;
+  border: none;
+  border-radius: 5px;
+  height: 32px;
+  margin-top: 8px;
+  width: 100%;
+  max-width: 248px;
+}
+
+label {
+  height: 22px;
+  width: 100%;
+}
+
+input,
+label {
+  font-family: $font-family;
+  font-size: $font-size;
+}
