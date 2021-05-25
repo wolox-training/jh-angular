@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { fields } from './constants';
 
 @Component({
   selector: 'app-sign-up',
@@ -7,13 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SignUpComponent {
 
-  fields = [
-    { label: 'Nombre', name: 'name', type: 'text'},
-    { label: 'Apellido', name: 'lastname', type: 'text'},
-    { label: 'Email', name: 'email', type: 'email'},
-    { label: 'Password', name: 'password', type: 'password'},
-    { label: 'Confirmación de Password', name: 'confirmPassword', type: 'password'},
-  ];
+  fields = fields;
   signUpForm: any = { name: '', lastname: '', email: '', password: '', confirmPassword: '' };
 
   public signUp(): void {
