@@ -5,7 +5,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './sign-up.component.html',
   styleUrls: ['./sign-up.component.scss']
 })
-export class SignUpComponent implements OnInit {
+export class SignUpComponent {
 
   fields = [
     { label: 'Nombre', name: 'name', type: 'text'},
@@ -15,9 +15,6 @@ export class SignUpComponent implements OnInit {
     { label: 'Confirmación de Password', name: 'confirmPassword', type: 'password'},
   ];
   signUpForm: any = { name: '', lastname: '', email: '', password: '', confirmPassword: '' };
-
-  ngOnInit(): void {
-  }
 
   public signUp(): void {
     console.log(this.signUpForm);
