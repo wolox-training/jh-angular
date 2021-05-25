@@ -5,6 +5,7 @@
       <input [type]="field.type" [formControlName]="field.formControlName">
       <div class="alert">
         <small *ngIf="isControlHasError(field.formControlName, 'required')">{{field.label}} es requerido.</small>
+        <small *ngIf="isControlHasError(field.formControlName, 'minLength')">El campo {{field.label}} debe tener mínimo 3 caracteres.</small>
         <small *ngIf="isControlHasError(field.formControlName, 'email')">Formato del correo inválido.</small>
         <small *ngIf="isControlHasError(field.formControlName, 'pattern') && field.formControlName === 'password'">
           La contraseña debe tener mínimo una mayúscula, una minúscula y un número.
