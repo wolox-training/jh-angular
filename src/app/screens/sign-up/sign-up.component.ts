@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { validatePassword, validatePasswordForm } from 'src/app/helpers/utilities/validators';
 import { fields } from './constants';
 
 @Component({
@@ -30,10 +31,12 @@ export class SignUpComponent implements OnInit {
       ])],
       password_confirmation: ['', Validators.compose([
         Validators.required,
-        Validators.pattern(/^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{6,14}$/)
+        validatePassword()
       ])],
       locale: ['en']
-    });
+    },
+      { validators: validatePasswordForm() }
+    );
   }
 
   isControlHasError(controlName: string, validationType: string): boolean {
@@ -50,6 +53,12 @@ export class SignUpComponent implements OnInit {
     if (this.form.valid) {
       console.log(this.form.value);
     }
+  }
+
+  validateForm(control: string, form: FormGroup, validationType: string): boolean {
+    if (control === 'password_confirmation') {
+      return form.errors?.[validationType];
+    } return false;
   }
 
 }
