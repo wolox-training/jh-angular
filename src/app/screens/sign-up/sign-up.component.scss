@@ -1,5 +1,9 @@
 @import "src/styles/styles.scss";
 
+.alert {
+  color: $red;
+}
+
 button {
   margin: 10px auto 15px auto;
 }

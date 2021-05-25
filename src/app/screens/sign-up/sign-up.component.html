@@ -1,9 +1,17 @@
 <app-form [buttonLabel]="'Login'" [buttonRoute]="'/login'">
-  <form class="form" (ngSubmit)="signUp()">
+  <form class="form" [formGroup]="form" (ngSubmit)="signUp()">
     <div class="content-input" *ngFor="let field of fields">
       <label [for]="field.name">{{field.label}}</label>
-      <input [type]="field.type" [(ngModel)]="signUpForm[field.name]" [ngModelOptions]="{ standalone: true}">
+      <input [type]="field.type" [formControlName]="field.formControlName">
+      <div class="alert">
+        <small *ngIf="isControlHasError(field.formControlName, 'required')">{{field.label}} es requerido.</small>
+        <small *ngIf="isControlHasError(field.formControlName, 'email')">Formato del correo inválido.</small>
+        <small *ngIf="isControlHasError(field.formControlName, 'pattern') && field.formControlName === 'password'">
+          La contraseña debe tener mínimo una mayúscula, una minúscula y un número.
+        </small>
+      </div>
     </div>
-    <button class="btn-fill" type="submit">Sign Up</button>
+    <button class="btn-fill" type="submit" [disabled]="!form.valid" [ngClass]="{'disabled': !form.valid}">
+      Sign Up</button>
   </form>
 </app-form>
