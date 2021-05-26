@@ -10,7 +10,7 @@
         <small *ngIf="isControlHasError(field.formControlName, 'pattern') && field.formControlName === 'password'">
           La contraseña debe tener mínimo una mayúscula, una minúscula y un número.
         </small>
-        <small *ngIf="isControlHasError(field.formControlName, 'MatchPassword') || validateForm(field.formControlName, form, 'MatchPassword')">
+        <small *ngIf="isControlHasError(field.formControlName, 'MatchPassword')">
           Las contraseñas no coinciden. 
         </small>
       </div>

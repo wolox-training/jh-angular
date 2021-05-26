@@ -41,24 +41,17 @@ export class SignUpComponent implements OnInit {
 
   isControlHasError(controlName: string, validationType: string): boolean {
     const control = this.form.get(controlName);
-    if (!control) {
-      return false;
+    if (controlName === 'password_confirmation') {
+      return this.form.errors?.[validationType];
     }
 
-    const result = control.hasError(validationType) && (control.dirty || control.touched);
-    return result;
+    return !control ? false : control.hasError(validationType) && (control.dirty || control.touched);
   }
 
   signUp(): void {
     if (this.form.valid) {
       console.log(this.form.value);
     }
-  }
-
-  validateForm(control: string, form: FormGroup, validationType: string): boolean {
-    if (control === 'password_confirmation') {
-      return form.errors?.[validationType];
-    } return false;
   }
 
 }
