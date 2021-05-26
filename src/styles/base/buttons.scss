@@ -1,18 +1,7 @@
 @import "/src/styles/lib/colors.scss";
 @import "/src/styles/lib/variables.scss";
 
-.btn-border {
-  background-color: $wild-sand;
-  border: 2px solid $earls-green;
-  color: $earls-green;
-}
-
-.btn-fill {
-  background-color: $earls-green;
-  color: $white;
-}
-
-button {
+%btn {
   border: none;
   border-radius: 5px;
   cursor: pointer;
