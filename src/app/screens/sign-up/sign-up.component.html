@@ -1,8 +1,8 @@
 <app-form [buttonLabel]="'Login'" [buttonRoute]="'/login'">
-  <form class="form" [formGroup]="form" (ngSubmit)="signUp()">
+  <form class="content-form" [formGroup]="form" (ngSubmit)="signUp()">
     <div class="content-input" *ngFor="let field of fields">
       <label [for]="field.name">{{field.label}}</label>
-      <input [type]="field.type" [formControlName]="field.formControlName">
+      <input class="input-base" [type]="field.type" [formControlName]="field.formControlName">
       <div class="alert">
         <small *ngIf="isControlHasError(field.formControlName, 'required')">{{field.label}} es requerido.</small>
         <small *ngIf="isControlHasError(field.formControlName, 'minLength')">El campo {{field.label}} debe tener mínimo 3 caracteres.</small>
@@ -15,6 +15,6 @@
         </small>
       </div>
     </div>
-    <button class="btn-submit " type="submit">Sign Up</button>
+    <button class="btn btn-submit " type="submit" [disabled]="!form.valid" [ngClass]="{'disabled': !form.valid}">Sign Up</button>
   </form>
 </app-form>

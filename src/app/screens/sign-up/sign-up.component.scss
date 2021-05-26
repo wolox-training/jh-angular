@@ -1,4 +1,3 @@
-@import "src/styles/styles";
 @import "src/styles/lib/colors";
 
 .alert {
@@ -6,14 +5,23 @@
 }
 
 .btn-submit {
-  @extend %btn;
   background-color: $earls-green;
   color: $white;
   margin: 10px auto 15px;
+}
+
+.content-form {
+  border-bottom: 2px solid $silver-chalice;
+  margin: 0 25px;
 }
 
 .content-input {
   display: flex;
   flex-flow: column;
   margin: 15px 0;
+}
+
+.disabled {
+  background-color: $silver-chalice;
+  cursor: default;
 }
