@@ -1,7 +1,13 @@
-@import "src/styles/styles.scss";
+@import "src/styles/styles";
+@import "src/styles/lib/colors";
+@import "src/styles/lib/variables";
 
-button {
-  margin: 15px 25px 25px 25px;
+.btn-route {
+  @extend %btn;
+  background-color: $wild-sand;
+  border: 2px solid $earls-green;
+  color: $earls-green;
+  margin: 15px 25px 25px;
 }
 
 .container {

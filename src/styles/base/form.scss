@@ -1,13 +1,6 @@
 @import "/src/styles/lib/colors";
 @import "/src/styles/lib/variables";
 
-.content-input {
-  display: flex;
-  flex-flow: column nowrap;
-  margin: 15px 0;
-  width: inherit;
-}
-
 input {
   background-color: $white;
   border: none;
