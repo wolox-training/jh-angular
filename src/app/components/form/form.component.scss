@@ -1,9 +1,7 @@
-@import "src/styles/styles";
 @import "src/styles/lib/colors";
 @import "src/styles/lib/variables";
 
 .btn-route {
-  @extend %btn;
   background-color: $wild-sand;
   border: 2px solid $earls-green;
   color: $earls-green;

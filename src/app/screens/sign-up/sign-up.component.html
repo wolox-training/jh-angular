@@ -2,8 +2,8 @@
   <form class="content-form" (ngSubmit)="signUp()">
     <div class="content-input" *ngFor="let field of fields">
       <label [for]="field.name">{{field.label}}</label>
-      <input [type]="field.type" [(ngModel)]="signUpForm[field.name]" [ngModelOptions]="{ standalone: true}">
+      <input class="input-base" [type]="field.type" [(ngModel)]="signUpForm[field.name]" [ngModelOptions]="{ standalone: true}">
     </div>
-    <button class="btn-submit " type="submit">Sign Up</button>
+    <button class="btn btn-submit " type="submit">Sign Up</button>
   </form>
 </app-form>

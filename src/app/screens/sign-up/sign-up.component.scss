@@ -1,8 +1,6 @@
-@import "src/styles/styles";
 @import "src/styles/lib/colors";
 
 .btn-submit {
-  @extend %btn;
   background-color: $earls-green;
   color: $white;
   margin: 10px auto 15px;
