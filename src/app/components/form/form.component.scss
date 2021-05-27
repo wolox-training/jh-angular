@@ -2,10 +2,14 @@
 @import "src/styles/lib/variables";
 
 .btn-route {
+  align-items: center;
   background-color: $wild-sand;
   border: 2px solid $earls-green;
   color: $earls-green;
+  display: flex;
+  justify-content: center;
   margin: 15px 25px 25px;
+  text-decoration: none;
 }
 
 .container {
