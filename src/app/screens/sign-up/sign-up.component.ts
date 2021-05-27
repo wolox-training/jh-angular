@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { validatePassword, validatePasswordForm } from 'src/app/helpers/utilities/validators';
+import { UserService } from 'src/app/services/user.service';
 import { fields } from './constants';
 
 @Component({
@@ -13,7 +14,7 @@ export class SignUpComponent implements OnInit {
   fields = fields;
   form!: FormGroup;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private service: UserService) {
   }
 
   ngOnInit(): void {
@@ -50,7 +51,11 @@ export class SignUpComponent implements OnInit {
 
   signUp(): void {
     if (this.form.valid) {
-      console.log(this.form.value);
+      this.service.createUser(this.form.value).subscribe(() => {
+        console.log('success');
+      }, error => {
+        console.log('Error: ' + error);
+      });
     }
   }
 
