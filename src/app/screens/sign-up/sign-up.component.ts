@@ -65,12 +65,10 @@ export class SignUpComponent implements OnInit {
 
   signUp(): void {
     if (this.form.valid) {
-      console.log(this.form.value);
-      debugger
       this.service.createUser(this.form.value).subscribe(() => {
         console.log('success');
       }, error => {
-        console.log('Error: ' + error);
+        console.error(error.error.errors.full_messages.join());
       });
     }
   }
