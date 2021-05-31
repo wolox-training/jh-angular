@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { validatePassword, validatePasswordForm } from 'src/app/helpers/utilities/validators';
 import { UserService } from 'src/app/services/user.service';
-import { fields } from './constants';
+import { fields, validators } from './constants';
 
 @Component({
   selector: 'app-sign-up',
@@ -13,6 +13,7 @@ export class SignUpComponent implements OnInit {
 
   fields = fields;
   form!: FormGroup;
+  validators = validators;
 
   constructor(private fb: FormBuilder, private service: UserService) {
   }
@@ -52,26 +53,20 @@ export class SignUpComponent implements OnInit {
     }
 
     if (control?.dirty || control?.touched) {
-      if (control?.hasError('required')) {
-        field.errorMessage = `${field.label} es requerido.`;
-        return true;
-      } else if (control?.hasError('minLength')) {
-        field.errorMessage = `El campo ${field.label} debe tener mínimo 3 caracteres.`;
-        return true;
-      } else if (control?.hasError('email')) {
-        field.errorMessage = `Formato del correo inválido.`;
-        return true;
-      } else if (control?.hasError('pattern')) {
-        field.errorMessage = `La contraseña debe tener mínimo una mayúscula, una minúscula y un número.`;
-        return true;
-      } 
+      for (const validator of validators) {
+        if (control.hasError(validator.name)) {
+          field.errorMessage = validator.errorMessage;
+          return true;
+        }
+      }
     }
-
     return false;
   }
 
   signUp(): void {
     if (this.form.valid) {
+      console.log(this.form.value);
+      debugger
       this.service.createUser(this.form.value).subscribe(() => {
         console.log('success');
       }, error => {
