@@ -39,13 +39,34 @@ export class SignUpComponent implements OnInit {
     );
   }
 
-  isControlHasError(controlName: string, validationType: string): boolean {
+  isControlHasError(field: any): boolean {
+    const controlName = field.formControlName;
     const control = this.form.get(controlName);
+
     if (controlName === 'password_confirmation') {
-      return this.form.errors?.[validationType];
+      if (this.form.errors?.['MatchPassword']) {
+        field.errorMessage = 'Las contraseñas no coinciden.';
+        return true
+      }
     }
 
-    return !control ? false : control.hasError(validationType) && (control.dirty || control.touched);
+    if (control?.dirty || control?.touched) {
+      if (control?.hasError('required')) {
+        field.errorMessage = `${field.label} es requerido.`;
+        return true;
+      } else if (control?.hasError('minLength')) {
+        field.errorMessage = `El campo ${field.label} debe tener mínimo 3 caracteres.`;
+        return true;
+      } else if (control?.hasError('email')) {
+        field.errorMessage = `Formato del correo inválido.`;
+        return true;
+      } else if (control?.hasError('pattern')) {
+        field.errorMessage = `La contraseña debe tener mínimo una mayúscula, una minúscula y un número.`;
+        return true;
+      } 
+    }
+
+    return false;
   }
 
   signUp(): void {
