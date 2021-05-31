@@ -1,0 +1,30 @@
+@import "src/styles/lib/colors";
+@import "src/styles/lib/variables";
+
+.btn-route {
+  align-items: center;
+  background-color: $wild-sand;
+  border: 2px solid $earls-green;
+  color: $earls-green;
+  display: flex;
+  justify-content: center;
+  margin: 15px 25px 25px;
+  text-decoration: none;
+}
+
+.container {
+  background-color: $wild-sand;
+  border-top: 8px solid $cerulean;
+  display: flex;
+  flex-flow: column nowrap;
+  margin: auto;
+  margin-top: 50px;
+  max-width: $width-form;
+  width: 100%;
+}
+
+.logo-wolox {
+  height: 70px;
+  margin: 20px 0 0 45px;
+  width: 210px;
+}

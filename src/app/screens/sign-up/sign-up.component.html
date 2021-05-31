@@ -1,0 +1,9 @@
+<app-form [buttonLabel]="'Login'" [buttonRoute]="'/login'">
+  <form class="content-form" (ngSubmit)="signUp()">
+    <div class="content-input" *ngFor="let field of fields">
+      <label [for]="field.name">{{field.label}}</label>
+      <input class="input-base" [type]="field.type" [(ngModel)]="signUpForm[field.name]" [ngModelOptions]="{ standalone: true}">
+    </div>
+    <button class="btn btn-submit " type="submit">Sign Up</button>
+  </form>
+</app-form>
