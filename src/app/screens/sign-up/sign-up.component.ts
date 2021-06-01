@@ -44,11 +44,9 @@ export class SignUpComponent implements OnInit {
     const controlName = field.formControlName;
     const control = this.form.get(controlName);
 
-    if (controlName === 'password_confirmation') {
-      if (this.form.errors?.['MatchPassword']) {
-        field.errorMessage = 'Las contraseñas no coinciden.';
-        return true
-      }
+    if (controlName === 'password_confirmation' && this.form.errors?.['MatchPassword']) {
+      field.errorMessage = 'Las contraseñas no coinciden.';
+      return true
     }
 
     if (control?.dirty || control?.touched) {
