@@ -39,15 +39,15 @@ describe('SignUpComponent should', () => {
     expect(onClickMock).not.toHaveBeenCalled();
   }));
 
-  it('show message error', fakeAsync(() => {
+  fit('show message error', fakeAsync(() => {
     const spy = spyOn(component, 'isControlHasError').and.callThrough();
     const fieldEmail = FieldsMocks[0];
     const form = component.form;
-    const controlEmail = component.form.get('email');
     form.setValue(SignUpMockErrorMessage);
-    controlEmail?.markAsDirty();
+    form.markAllAsTouched();
     
     fixture.detectChanges();
+
     const small: HTMLElement = fixture.debugElement.nativeElement.querySelector('small');
     tick();
 

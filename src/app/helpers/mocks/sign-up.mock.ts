@@ -14,7 +14,7 @@ export const SignUpMockErrorMessage = {
   last_name: 'Henao Arias',
   email: 'juan.henao@wolox.co.',
   password: '123456xD',
-  password_confirmation: '123456xD',
+  password_confirmation: '123456xDs',
   locale: 'en'
 }
 
