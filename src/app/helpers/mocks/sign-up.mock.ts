@@ -1,4 +1,4 @@
-import { SignUp } from "src/app/interfaces/sign-up.interface";
+import { fields } from "src/app/screens/sign-up/constants"
 
 export const SignUpMockEmpty = {
   first_name: 'Juan Miguel',
@@ -8,3 +8,14 @@ export const SignUpMockEmpty = {
   password_confirmation: '',
   locale: 'en'
 }
+
+export const SignUpMockErrorMessage = {
+  first_name: 'Juan Miguel',
+  last_name: 'Henao Arias',
+  email: 'juan.henao@wolox.co.',
+  password: '123456xD',
+  password_confirmation: '123456xD',
+  locale: 'en'
+}
+
+export const FieldsMocks = fields;

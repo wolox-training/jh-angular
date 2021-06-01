@@ -1,9 +1,9 @@
 import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { async, ComponentFixture, fakeAsync, TestBed, tick } from '@angular/core/testing';
+import { ComponentFixture, fakeAsync, TestBed, tick } from '@angular/core/testing';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterTestingModule } from '@angular/router/testing';
 import { FormModule } from 'src/app/components/form/form.module';
-import { SignUpMockEmpty } from 'src/app/helpers/mocks/sign-up.mock';
+import { FieldsMocks, SignUpMockEmpty, SignUpMockErrorMessage } from 'src/app/helpers/mocks/sign-up.mock';
 
 import { SignUpComponent } from './sign-up.component';
 
@@ -29,13 +29,29 @@ describe('SignUpComponent should', () => {
     expect(component).toBeTruthy();
   });
 
-  fit('not record when fields are empty', fakeAsync(() => {
+  it('not record when fields are empty', fakeAsync(() => {
     const onClickMock = spyOn(component, 'signUp').and.callThrough();
     component.form.setValue(SignUpMockEmpty);
     fixture.detectChanges();
-    let button = fixture.debugElement.nativeElement.querySelector('button');
+    const button = fixture.debugElement.nativeElement.querySelector('button');
     button.click();
     tick();
     expect(onClickMock).not.toHaveBeenCalled();
+  }));
+
+  it('show message error', fakeAsync(() => {
+    const spy = spyOn(component, 'isControlHasError').and.callThrough();
+    const fieldEmail = FieldsMocks[0];
+    const form = component.form;
+    const controlEmail = component.form.get('email');
+    form.setValue(SignUpMockErrorMessage);
+    controlEmail?.markAsDirty();
+    
+    fixture.detectChanges();
+    const small: HTMLElement = fixture.debugElement.nativeElement.querySelector('small');
+    tick();
+
+    expect(small.textContent).not.toBe('');
+    expect(spy).toHaveBeenCalledWith(fieldEmail);
   }));
 });
