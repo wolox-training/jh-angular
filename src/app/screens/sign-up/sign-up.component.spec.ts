@@ -39,13 +39,12 @@ describe('SignUpComponent should', () => {
     expect(onClickMock).not.toHaveBeenCalled();
   }));
 
-  fit('show message error', fakeAsync(() => {
+  it('show message error', fakeAsync(() => {
     const spy = spyOn(component, 'isControlHasError').and.callThrough();
     const fieldEmail = FieldsMocks[0];
     const form = component.form;
     form.setValue(SignUpMockErrorMessage);
     form.markAllAsTouched();
-    
     fixture.detectChanges();
 
     const small: HTMLElement = fixture.debugElement.nativeElement.querySelector('small');
@@ -54,4 +53,20 @@ describe('SignUpComponent should', () => {
     expect(small.textContent).not.toBe('');
     expect(spy).toHaveBeenCalledWith(fieldEmail);
   }));
+
+  fit('not record when fields are invalid', fakeAsync(() => {
+    const spy = spyOn(component, 'signUp').and.callThrough();
+    const form = component.form;
+    form.setValue(SignUpMockErrorMessage);
+    form.markAllAsTouched();
+    fixture.detectChanges();
+
+    const small: HTMLElement = fixture.debugElement.nativeElement.querySelector('small');
+    const button: HTMLElement = fixture.debugElement.nativeElement.querySelector('button');
+    button.click();
+    tick();
+
+    expect(small.textContent).not.toBe('');
+    expect(spy).not.toHaveBeenCalled();
+  }))
 });
