@@ -2,19 +2,23 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, fakeAsync, TestBed, tick } from '@angular/core/testing';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterTestingModule } from '@angular/router/testing';
+import { of } from 'rxjs';
 import { FormModule } from 'src/app/components/form/form.module';
-import { FieldsMocks, SignUpMockEmpty, SignUpMockErrorMessage } from 'src/app/helpers/mocks/sign-up.mock';
+import { FieldsMocks, SignUpMock, SignUpMockEmpty, SignUpMockErrorMessage, SignUpMockResponse } from 'src/app/helpers/mocks/sign-up.mock';
+import { UserService } from 'src/app/services/user.service';
 
 import { SignUpComponent } from './sign-up.component';
 
 describe('SignUpComponent should', () => {
   let component: SignUpComponent;
   let fixture: ComponentFixture<SignUpComponent>;
+  let userService: UserService;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [SignUpComponent],
-      imports: [HttpClientTestingModule, ReactiveFormsModule, FormModule, RouterTestingModule]
+      imports: [HttpClientTestingModule, ReactiveFormsModule, FormModule, RouterTestingModule],
+      providers: [UserService]
     })
       .compileComponents();
   });
@@ -22,6 +26,7 @@ describe('SignUpComponent should', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(SignUpComponent);
     component = fixture.componentInstance;
+    userService = TestBed.get(UserService);
     fixture.detectChanges();
   });
 
@@ -54,7 +59,7 @@ describe('SignUpComponent should', () => {
     expect(spy).toHaveBeenCalledWith(fieldEmail);
   }));
 
-  fit('not record when fields are invalid', fakeAsync(() => {
+  it('not record when fields are invalid', fakeAsync(() => {
     const spy = spyOn(component, 'signUp').and.callThrough();
     const form = component.form;
     form.setValue(SignUpMockErrorMessage);
@@ -68,5 +73,25 @@ describe('SignUpComponent should', () => {
 
     expect(small.textContent).not.toBe('');
     expect(spy).not.toHaveBeenCalled();
-  }))
+  }));
+
+  it('create user', fakeAsync(() => {
+    const spySignUp = spyOn(component, 'signUp').and.callThrough();
+    spyOn(userService, 'createUser').and.returnValue(of(SignUpMockResponse));
+    const form = component.form;
+    form.setValue(SignUpMock);
+    fixture.detectChanges();
+
+    const button: HTMLElement = fixture.debugElement.nativeElement.querySelector('button');
+    button.click();
+
+    expect(spySignUp).toHaveBeenCalled();
+
+    let response;
+    userService.createUser(SignUpMock).subscribe(res => {
+      response = res;
+      expect(response).toEqual(SignUpMockResponse);
+    });
+  }));
+
 });
