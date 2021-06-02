@@ -76,7 +76,6 @@ describe('SignUpComponent should', () => {
   }));
 
   it('create user', fakeAsync(() => {
-    const spySignUp = spyOn(component, 'signUp').and.callThrough();
     spyOn(userService, 'createUser').and.returnValue(of(SignUpMockResponse));
     const form = component.form;
     form.setValue(SignUpMock);
@@ -84,8 +83,6 @@ describe('SignUpComponent should', () => {
 
     const button: HTMLElement = fixture.debugElement.nativeElement.querySelector('button');
     button.click();
-
-    expect(spySignUp).toHaveBeenCalled();
 
     let response;
     userService.createUser(SignUpMock).subscribe(res => {
