@@ -1,6 +1,7 @@
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, fakeAsync, TestBed, tick } from '@angular/core/testing';
 import { ReactiveFormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 import { of } from 'rxjs';
 import { FormModule } from 'src/app/components/form/form.module';
@@ -13,11 +14,16 @@ describe('SignUpComponent should', () => {
   let component: SignUpComponent;
   let fixture: ComponentFixture<SignUpComponent>;
   let userService: UserService;
+  let router: Router;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [SignUpComponent],
-      imports: [HttpClientTestingModule, ReactiveFormsModule, FormModule, RouterTestingModule],
+      imports: [HttpClientTestingModule, ReactiveFormsModule, FormModule,
+        RouterTestingModule.withRoutes([
+          { path: 'sign-up', component: SignUpComponent },
+          { path: 'login', component: SignUpComponent }
+        ])],
       providers: [UserService]
     })
       .compileComponents();
@@ -27,6 +33,7 @@ describe('SignUpComponent should', () => {
     fixture = TestBed.createComponent(SignUpComponent);
     component = fixture.componentInstance;
     userService = TestBed.get(UserService);
+    router = TestBed.get(Router);
     fixture.detectChanges();
   });
 
@@ -91,4 +98,18 @@ describe('SignUpComponent should', () => {
     });
   }));
 
+  it('create user and navigate to login', fakeAsync(() => {
+    const spyRouter = spyOn(router, 'navigate').and.callThrough();
+    spyOn(userService, 'createUser').and.returnValue(of(SignUpMockResponse));
+    const form = component.form;
+    form.setValue(SignUpMock);
+    fixture.detectChanges();
+
+    const button: HTMLElement = fixture.debugElement.nativeElement.querySelector('button');
+    button.click();
+
+    userService.createUser(SignUpMock).subscribe(() => {
+      expect(spyRouter).toHaveBeenCalledWith(['/login']);
+    });
+  }));
 });
