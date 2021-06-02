@@ -1,5 +1,10 @@
 @import "src/styles/lib/colors";
 
+.alert {
+  color: $red;
+  margin-top: 2px;
+}
+
 .btn-submit {
   background-color: $earls-green;
   color: $white;
@@ -25,4 +30,9 @@
   display: flex;
   flex-flow: column;
   margin: 15px 0;
+}
+
+.disabled {
+  background-color: $silver-chalice;
+  cursor: default;
 }

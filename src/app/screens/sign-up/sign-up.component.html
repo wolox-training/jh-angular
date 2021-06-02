@@ -1,9 +1,11 @@
 <app-form [buttonLabel]="'Login'" [buttonRoute]="'/login'">
-  <form class="content-form" (ngSubmit)="signUp()">
+  <form class="content-form" [formGroup]="form" (ngSubmit)="signUp()">
     <div class="content-input" *ngFor="let field of fields">
       <label [for]="field.name">{{field.label}}</label>
-      <input class="input-base" [type]="field.type" [(ngModel)]="signUpForm[field.name]" [ngModelOptions]="{ standalone: true}">
+      <input class="input-base" [type]="field.type" [formControlName]="field.formControlName">
+      <small class="alert" *ngIf="isControlHasError(field)"> {{field.errorMessage}}</small>
     </div>
-    <button class="btn btn-submit " type="submit">Sign Up</button>
+    <button class="btn btn-submit " type="submit" [disabled]="!form.valid" [ngClass]="{'disabled': !form.valid}">
+      Sign Up</button>
   </form>
 </app-form>
