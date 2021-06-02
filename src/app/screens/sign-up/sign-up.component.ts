@@ -63,14 +63,12 @@ export class SignUpComponent implements OnInit {
   }
 
   signUp(): void {
-    if (this.form.valid) {
-      this.service.createUser(this.form.value).subscribe(() => {
-        console.log('success');
-        this.route.navigate(['/login']);
-      }, error => {
-        console.error(error.error.errors.full_messages.join());
-      });
-    }
+    this.service.createUser(this.form.value).subscribe(() => {
+      console.log('success');
+      this.route.navigate(['/login'])
+    }, error => {
+      console.error(error.error.errors.full_messages.join());
+    });
   }
 
 }
