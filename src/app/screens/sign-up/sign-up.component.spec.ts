@@ -1,5 +1,5 @@
 import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { ComponentFixture, fakeAsync, TestBed, tick } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
@@ -10,7 +10,7 @@ import { UserService } from 'src/app/services/user.service';
 
 import { SignUpComponent } from './sign-up.component';
 
-describe('SignUpComponent should', () => {
+describe('SignUpComponent', () => {
   let component: SignUpComponent;
   let fixture: ComponentFixture<SignUpComponent>;
   let userService: UserService;
@@ -37,11 +37,11 @@ describe('SignUpComponent should', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('Should create', () => {
     expect(component).toBeTruthy();
   });
 
-  it('not record when fields are empty', () => {
+  it('Should not record when fields are empty', () => {
     const onClickMock = spyOn(component, 'signUp').and.callThrough();
     component.form.setValue(SignUpMockEmpty);
     fixture.detectChanges();
@@ -50,7 +50,7 @@ describe('SignUpComponent should', () => {
     expect(onClickMock).not.toHaveBeenCalled();
   });
 
-  it('show message error', () => {
+  it('Should show message error', () => {
     const spy = spyOn(component, 'isControlHasError').and.callThrough();
     const fieldEmail = FieldsMocks[0];
     const form = component.form;
@@ -64,7 +64,7 @@ describe('SignUpComponent should', () => {
     expect(spy).toHaveBeenCalledWith(fieldEmail);
   });
 
-  it('not record when fields are invalid', () => {
+  it('Should not record when fields are invalid', () => {
     const spy = spyOn(component, 'signUp').and.callThrough();
     const form = component.form;
     form.setValue(SignUpMockErrorMessage);
@@ -79,7 +79,7 @@ describe('SignUpComponent should', () => {
     expect(spy).not.toHaveBeenCalled();
   });
 
-  it('create user', () => {
+  it('Should create user', () => {
     spyOn(userService, 'createUser').and.returnValue(of(SignUpMockResponse));
     const form = component.form;
     form.setValue(SignUpMock);
@@ -93,7 +93,7 @@ describe('SignUpComponent should', () => {
     });
   });
 
-  it('create user and navigate to login', () => {
+  it('Should create user and navigate to login', () => {
     const spyRouter = spyOn(router, 'navigate').and.callThrough();
     spyOn(userService, 'createUser').and.returnValue(of(SignUpMockResponse));
     const form = component.form;
