@@ -41,17 +41,16 @@ describe('SignUpComponent should', () => {
     expect(component).toBeTruthy();
   });
 
-  it('not record when fields are empty', fakeAsync(() => {
+  it('not record when fields are empty', () => {
     const onClickMock = spyOn(component, 'signUp').and.callThrough();
     component.form.setValue(SignUpMockEmpty);
     fixture.detectChanges();
     const button: HTMLElement = fixture.debugElement.nativeElement.querySelector('#btn-submit');
     button.click();
-    tick();
     expect(onClickMock).not.toHaveBeenCalled();
-  }));
+  });
 
-  it('show message error', fakeAsync(() => {
+  it('show message error', () => {
     const spy = spyOn(component, 'isControlHasError').and.callThrough();
     const fieldEmail = FieldsMocks[0];
     const form = component.form;
@@ -60,13 +59,12 @@ describe('SignUpComponent should', () => {
     fixture.detectChanges();
 
     const small: HTMLElement = fixture.debugElement.nativeElement.querySelector('#alert');
-    tick();
 
     expect(small.textContent).not.toBe('');
     expect(spy).toHaveBeenCalledWith(fieldEmail);
-  }));
+  });
 
-  it('not record when fields are invalid', fakeAsync(() => {
+  it('not record when fields are invalid', () => {
     const spy = spyOn(component, 'signUp').and.callThrough();
     const form = component.form;
     form.setValue(SignUpMockErrorMessage);
@@ -76,13 +74,12 @@ describe('SignUpComponent should', () => {
     const small: HTMLElement = fixture.debugElement.nativeElement.querySelector('#alert');
     const button: HTMLElement = fixture.debugElement.nativeElement.querySelector('#btn-submit');
     button.click();
-    tick();
 
     expect(small.textContent).not.toBe('');
     expect(spy).not.toHaveBeenCalled();
-  }));
+  });
 
-  it('create user', fakeAsync(() => {
+  it('create user', () => {
     spyOn(userService, 'createUser').and.returnValue(of(SignUpMockResponse));
     const form = component.form;
     form.setValue(SignUpMock);
@@ -94,9 +91,9 @@ describe('SignUpComponent should', () => {
     userService.createUser(SignUpMock).subscribe(res => {
       expect(res).toEqual(SignUpMockResponse);
     });
-  }));
+  });
 
-  it('create user and navigate to login', fakeAsync(() => {
+  it('create user and navigate to login', () => {
     const spyRouter = spyOn(router, 'navigate').and.callThrough();
     spyOn(userService, 'createUser').and.returnValue(of(SignUpMockResponse));
     const form = component.form;
@@ -109,5 +106,5 @@ describe('SignUpComponent should', () => {
     userService.createUser(SignUpMock).subscribe(() => {
       expect(spyRouter).toHaveBeenCalledWith(['/login']);
     });
-  }));
+  });
 });
