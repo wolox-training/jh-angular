@@ -5,5 +5,5 @@ export const fields = [
 
 export const validators = [
   { name: 'required', errorMessage: 'Campo requerido.'},
-  { name: 'email', errorMessage: 'Formato del correo inválido.'},
+  { name: 'email', errorMessage: 'El formato de mail no es correcto'},
 ];

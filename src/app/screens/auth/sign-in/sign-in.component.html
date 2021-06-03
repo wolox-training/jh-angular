@@ -5,7 +5,8 @@
       <input class="input-base" [type]="field.type" [formControlName]="field.formControlName">
       <small id="alert" class="alert" *ngIf="isControlHasError(field)"> {{field.errorMessage}}</small>
     </div>
+    <small class="alert" *ngIf="invalidCredetials">Credenciales incorrectas</small>
     <button id="btn-submit" class="btn btn-submit " type="submit" [disabled]="!form.valid"
-      [ngClass]="{'disabled': !form.valid}"> Login</button>
+      [ngClass]="{'disabled': !form.valid}">Login</button>
   </form>
 </app-form>

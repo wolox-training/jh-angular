@@ -13,6 +13,7 @@ export class SignInComponent implements OnInit {
 
   fields = fields;
   form!: FormGroup;
+  invalidCredetials = false;
   validators = validators;
 
   constructor(private fb: FormBuilder, private service: UserService) { }
@@ -32,11 +33,6 @@ export class SignInComponent implements OnInit {
     const controlName = field.formControlName;
     const control = this.form.get(controlName);
 
-    if (controlName === 'password_confirmation' && this.form.errors?.['MatchPassword']) {
-      field.errorMessage = 'Las contraseñas no coinciden.';
-      return true
-    }
-
     if (control?.dirty || control?.touched) {
       for (const validator of validators) {
         if (control.hasError(validator.name)) {
@@ -49,10 +45,12 @@ export class SignInComponent implements OnInit {
   }
 
   signIn() {
+    this.invalidCredetials = false;
     this.service.signIn(this.form.value as SignIn).subscribe((res) => {
-     console.log(res);
+     console.log(res.headers.get('access-token'));
     }, error => {
       console.error(error);
+      this.invalidCredetials = true;
     });
   }
 

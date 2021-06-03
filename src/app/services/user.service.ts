@@ -18,7 +18,7 @@ export class UserService {
   }
 
   signIn(user: SignIn): Observable<any> {
-    return this.http.post<any>(`${this.apiBaseUrl}/users/sign_in`, user);
+    return this.http.post<any>(`${this.apiBaseUrl}/users/sign_in`, user, { observe: 'response'});
   }
 
 }
