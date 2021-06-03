@@ -45,7 +45,7 @@ describe('SignUpComponent should', () => {
     const onClickMock = spyOn(component, 'signUp').and.callThrough();
     component.form.setValue(SignUpMockEmpty);
     fixture.detectChanges();
-    const button = fixture.debugElement.nativeElement.querySelector('button');
+    const button: HTMLElement = fixture.debugElement.nativeElement.querySelector('#btn-submit');
     button.click();
     tick();
     expect(onClickMock).not.toHaveBeenCalled();
@@ -59,7 +59,7 @@ describe('SignUpComponent should', () => {
     form.markAllAsTouched();
     fixture.detectChanges();
 
-    const small: HTMLElement = fixture.debugElement.nativeElement.querySelector('small');
+    const small: HTMLElement = fixture.debugElement.nativeElement.querySelector('#alert');
     tick();
 
     expect(small.textContent).not.toBe('');
@@ -73,8 +73,8 @@ describe('SignUpComponent should', () => {
     form.markAllAsTouched();
     fixture.detectChanges();
 
-    const small: HTMLElement = fixture.debugElement.nativeElement.querySelector('small');
-    const button: HTMLElement = fixture.debugElement.nativeElement.querySelector('button');
+    const small: HTMLElement = fixture.debugElement.nativeElement.querySelector('#alert');
+    const button: HTMLElement = fixture.debugElement.nativeElement.querySelector('#btn-submit');
     button.click();
     tick();
 
@@ -88,13 +88,11 @@ describe('SignUpComponent should', () => {
     form.setValue(SignUpMock);
     fixture.detectChanges();
 
-    const button: HTMLElement = fixture.debugElement.nativeElement.querySelector('button');
+    const button: HTMLElement = fixture.debugElement.nativeElement.querySelector('#btn-submit');
     button.click();
 
-    let response;
     userService.createUser(SignUpMock).subscribe(res => {
-      response = res;
-      expect(response).toEqual(SignUpMockResponse);
+      expect(res).toEqual(SignUpMockResponse);
     });
   }));
 
@@ -105,7 +103,7 @@ describe('SignUpComponent should', () => {
     form.setValue(SignUpMock);
     fixture.detectChanges();
 
-    const button: HTMLElement = fixture.debugElement.nativeElement.querySelector('button');
+    const button: HTMLElement = fixture.debugElement.nativeElement.querySelector('#btn-submit');
     button.click();
 
     userService.createUser(SignUpMock).subscribe(() => {
