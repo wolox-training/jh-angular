@@ -1,5 +1,5 @@
 import { SignUp } from "src/app/interfaces/sign-up.interface";
-import { fields } from "src/app/screens/sign-up/constants"
+import { fields } from "src/app/screens/auth/sign-up/constants"
 
 export const SignUpMock = {
   first_name: 'Juan',

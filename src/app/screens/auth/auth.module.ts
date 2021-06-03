@@ -1,22 +1,23 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { SignUpRoutingModule } from './sign-up-routing.module';
-import { SignUpComponent } from './sign-up.component';
+import { AuthRoutingModule } from './auth-routing.module';
 import { FormModule } from 'src/app/components/form/form.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { SignUpComponent } from './sign-up/sign-up.component';
 import { UserService } from 'src/app/services/user.service';
+
 
 @NgModule({
   declarations: [SignUpComponent],
   imports: [
     CommonModule,
+    AuthRoutingModule,
     FormModule,
     ReactiveFormsModule,
-    SignUpRoutingModule,
     HttpClientModule
   ],
   providers: [UserService]
 })
-export class SignUpModule { }
+export class AuthModule { }
