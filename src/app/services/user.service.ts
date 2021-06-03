@@ -5,9 +5,7 @@ import { environment } from '../../environments/environment';
 import { SignUpResponse } from '../interfaces/sign-up-response.interface';
 import { SignUp } from '../interfaces/sign-up.interface';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class UserService {
 
   private readonly apiBaseUrl = environment.gateway;
