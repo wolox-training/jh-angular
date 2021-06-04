@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { SignIn } from 'src/app/interfaces/sign-in.interface';
 import { UserService } from 'src/app/services/user.service';
 import { fields, validators } from './constants';
@@ -16,7 +17,7 @@ export class SignInComponent implements OnInit {
   invalidCredetials = false;
   validators = validators;
 
-  constructor(private fb: FormBuilder, private service: UserService) { }
+  constructor(private fb: FormBuilder, private service: UserService, private router: Router) { }
 
   ngOnInit(): void {
     this.initializeForm();
@@ -47,7 +48,8 @@ export class SignInComponent implements OnInit {
   signIn() {
     this.invalidCredetials = false;
     this.service.signIn(this.form.value as SignIn).subscribe((res) => {
-     console.log(res.headers.get('access-token'));
+     localStorage.setItem('ACCESS_TOKEN', res.headers.get('access-token'));
+     this.router.navigate(['books']);
     }, error => {
       console.error(error);
       this.invalidCredetials = true;
