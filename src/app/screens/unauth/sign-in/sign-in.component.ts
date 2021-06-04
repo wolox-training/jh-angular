@@ -49,7 +49,7 @@ export class SignInComponent implements OnInit {
     this.invalidCredetials = false;
     this.service.signIn(this.form.value as SignIn).subscribe((res) => {
      localStorage.setItem('ACCESS_TOKEN', res.headers.get('access-token'));
-     this.router.navigate(['books']);
+     this.router.navigate(['auth']);
     }, error => {
       console.error(error);
       this.invalidCredetials = true;
