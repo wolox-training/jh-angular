@@ -7,7 +7,7 @@ import { fields, validators } from './constants';
 @Component({
   selector: 'app-sign-in',
   templateUrl: './sign-in.component.html',
-  styleUrls: ['./sign-in.component.scss']
+  styleUrls: ['./../auth.component.scss']
 })
 export class SignInComponent implements OnInit {
 
