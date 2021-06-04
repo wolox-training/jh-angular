@@ -1,4 +1,5 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -7,10 +8,12 @@ import { Component, EventEmitter, Output } from '@angular/core';
 })
 export class HeaderComponent {
 
-  @Output() logout = new EventEmitter<boolean>();
+  constructor(private router: Router) {
+  }
 
   sessionLogout(): void {
-    this.logout.emit(true);
+    localStorage.removeItem('ACCESS_TOKEN');
+    this.router.navigate(['auth/login']);
   }
 
 }
