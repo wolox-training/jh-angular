@@ -21,4 +21,8 @@ export class UserService {
     return this.http.post<any>(`${this.apiBaseUrl}/users/sign_in`, user, { observe: 'response'});
   }
 
+  loggedIn() {
+    return !!localStorage.getItem('ACCESS_TOKEN');
+  }
+
 }
