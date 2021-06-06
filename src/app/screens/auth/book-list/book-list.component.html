@@ -1,5 +1,9 @@
-<div class="content" >
-  <!-- <div class="book" *ngFor="let book of books"> -->
-    <app-book class="book" *ngFor="let book of books" [book]="book"></app-book>
-  <!-- </div> -->
+<div class="content">
+  <div class="search">
+    <input class="search-input" placeholder="Buscá por título del libro..." (input)="filter($event)">
+    <i class="icon-search"></i>
+  </div>
+  <div class="books">
+    <app-book class="book" *ngFor="let book of booksFiltered" [book]="book"></app-book>
+  </div>
 </div>
