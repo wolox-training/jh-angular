@@ -7,6 +7,7 @@ const routes: Routes = [
   {
     path: '', component: AuthComponent,
     children: [
+      { path: '', pathMatch: 'full', redirectTo: 'books' },
       { path: 'books', component: BookListComponent },
     ]
   },
