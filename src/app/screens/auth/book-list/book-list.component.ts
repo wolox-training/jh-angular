@@ -10,6 +10,7 @@ import { Book } from '../interfaces/book.interface';
 export class BookListComponent implements OnInit {
 
   books: Array<Book> = [];
+  booksFiltered: Array<Book> = [];
 
   constructor(private bookService: BooksService) {
   }
@@ -20,10 +21,17 @@ export class BookListComponent implements OnInit {
 
   getBooks() {
     this.bookService.getBooks().subscribe(success => {
-      console.log(success);
       this.books = success.page;
+      this.booksFiltered = this.books;
     }, error => {
       console.error(error);
+    });
+  }
+
+  filter(event: any) {
+    const key: string = event.target.value;
+    this.booksFiltered = this.books.filter(book => {
+      return book.title.toLowerCase().includes(key.toLowerCase());
     });
   }
 
