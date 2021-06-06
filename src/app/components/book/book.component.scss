@@ -22,13 +22,24 @@
   }
 
   .btn-add {
-    background-image: url("/assets/images/add-book.png");
-    background-repeat: no-repeat;
+    align-items: center;
+    background-color: $atlantis;
+    border-radius: 12px;
     bottom: 5px;
-    height: 30px;
+    display: flex;
+    height: 24px;
     position: absolute;
     right: 5px;
-    width: 30px;
+    width: 24px;
+
+    span {
+      color: $white;
+      font-size: 28px;
+      height: 30px;
+      line-height: 31px;
+      text-align: center;
+      width: 30px;
+    }
   }
 
   .book-cover {
@@ -44,6 +55,7 @@
   }
 
   &:hover {
+    cursor: pointer;
     transform: scale(1.1);
   }
 }
