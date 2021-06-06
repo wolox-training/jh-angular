@@ -1,0 +1,12 @@
+@import "src/styles/lib/colors";
+
+.book {
+  margin: 0 0 35px 35px;
+}
+
+.content {
+  background-color: $wild-sand;
+  display: flex;
+  flex-flow: row wrap;
+  padding: 120px 0 70px 200px;
+}
