@@ -1,0 +1,49 @@
+@import "src/styles/lib/colors";
+
+.card {
+  background-color: $white;
+  box-shadow: 4px 4px 10px 0 rgba(0, 0, 0, 0.5);
+  height: 300px;
+  position: relative;
+  width: 200px;
+
+  .author {
+    color: $gray;
+    font-size: 14px;
+    margin: 5px 0 0 30px;
+  }
+
+  .author,
+  .title {
+    line-height: 18px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .btn-add {
+    background-image: url("/assets/images/add-book.png");
+    background-repeat: no-repeat;
+    bottom: 5px;
+    height: 30px;
+    position: absolute;
+    right: 5px;
+    width: 30px;
+  }
+
+  .book-cover {
+    height: 200px;
+    margin: 30px 30px 0;
+    position: relative;
+    width: 140px;
+  }
+
+  .title {
+    font-weight: 700;
+    margin: 10px 30px 0;
+  }
+
+  &:hover {
+    transform: scale(1.1);
+  }
+}
