@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './header.component';
+import { MatBadgeModule } from '@angular/material/badge';
 
 
 
@@ -8,7 +9,9 @@ import { HeaderComponent } from './header.component';
   declarations: [HeaderComponent],
   exports: [HeaderComponent],
   imports: [
-    CommonModule
+    CommonModule,
+    MatBadgeModule
+
   ]
 })
 export class HeaderModule { }
