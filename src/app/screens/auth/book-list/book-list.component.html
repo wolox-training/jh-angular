@@ -1,7 +1,9 @@
 <div class="content">
-  <div class="search">
-    <input class="search-input" placeholder="Buscá por título del libro..." (input)="filter($event)">
-    <i class="icon-search"></i>
+  <div class="div-flex search">
+    <div class="div-flex search-content">
+      <input class="search-input" placeholder="Buscá por título del libro..." (input)="filter($event)">
+      <img class="icon-search" src="assets/images/search.png" alt="Search">
+    </div>
   </div>
   <div class="books">
     <app-book class="book" *ngFor="let book of booksFiltered" [book]="book"></app-book>
