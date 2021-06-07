@@ -10,6 +10,7 @@ import { TokenInterceptorService } from 'src/app/services/token-interceptor.serv
 import { BooksService } from 'src/app/services/books.service';
 import { BookModule } from 'src/app/components/book/book.module';
 import { BookDetailsComponent } from './book-details/book-details.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 
 @NgModule({
@@ -23,13 +24,14 @@ import { BookDetailsComponent } from './book-details/book-details.component';
     AuthRoutingModule,
     HeaderModule,
     HttpClientModule,
-    BookModule
+    BookModule,
+    MatDialogModule,
   ],
   providers: [BooksService,
-  {
-    provide: HTTP_INTERCEPTORS,
-    useClass: TokenInterceptorService,
-    multi: true
-  }]
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptorService,
+      multi: true
+    }]
 })
 export class AuthModule { }
