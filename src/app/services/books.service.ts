@@ -15,4 +15,8 @@ export class BooksService {
     return this.http.get<BooksResponse>(`${this.apiBaseUrl}/books`);
   }
 
+  getBook(id: any): Observable<any> {
+    return this.http.get(`${this.apiBaseUrl}/books/${id}`);
+  }
+
 }

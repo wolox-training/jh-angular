@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { BooksService } from 'src/app/services/books.service';
 import { Book } from '../interfaces/book.interface';
 
@@ -12,7 +13,7 @@ export class BookListComponent implements OnInit {
   books: Array<Book> = [];
   booksFiltered: Array<Book> = [];
 
-  constructor(private bookService: BooksService) {
+  constructor(private bookService: BooksService, private router: Router) {
   }
 
   ngOnInit(): void {
@@ -33,6 +34,10 @@ export class BookListComponent implements OnInit {
     this.booksFiltered = this.books.filter(book => {
       return book.title.toLowerCase().includes(key.toLowerCase());
     });
+  }
+
+  showBook(book: Book) {
+    this.router.navigate([`auth/book/${book.id}`])
   }
 
 }
