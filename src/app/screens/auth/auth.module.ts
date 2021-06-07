@@ -9,12 +9,14 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptorService } from 'src/app/services/token-interceptor.service';
 import { BooksService } from 'src/app/services/books.service';
 import { BookModule } from 'src/app/components/book/book.module';
+import { BookDetailsComponent } from './book-details/book-details.component';
 
 
 @NgModule({
   declarations: [
     AuthComponent,
-    BookListComponent
+    BookListComponent,
+    BookDetailsComponent
   ],
   imports: [
     CommonModule,
