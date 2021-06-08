@@ -1,8 +1,8 @@
 <header class="header">
   <img class="logo-wolox" src="assets/images/logo_wolox.svg" alt="Logo Wolox">
   <div class="btns">
-    <a class="btn btn-cart" matBadge="4" matBadgeOverlap="false" matBadgeSize="small">
-      <img class="icon-shopping-cart" src="/assets/images/g4755.png">
+    <a class="btn btn-cart" (click)="showShoppingCart()" [matBadge]="books.length" matBadgeOverlap="true" matBadgeSize="small">
+      <img class="icon-shopping-cart" src="/assets/images/cart.svg">
     </a>
     <a class="btn btn-logout" (click)="sessionLogout()">Logout</a>
   </div>
