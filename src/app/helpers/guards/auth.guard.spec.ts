@@ -1,7 +1,6 @@
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
-import { of } from 'rxjs';
 import { SignInComponent } from 'src/app/screens/unauth/sign-in/sign-in.component';
 import { UserService } from 'src/app/services/user.service';
 
