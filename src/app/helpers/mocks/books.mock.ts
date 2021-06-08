@@ -79,7 +79,7 @@ export const BooksFiltered = [
   }
 ];
 
-export const BookMock = {
+export const BookMockResponse = {
   id: 1,
   author: "John Miedema",
   title: "Slow reading",
