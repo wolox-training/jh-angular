@@ -6,6 +6,6 @@
     </div>
   </div>
   <div class="books">
-    <app-book (click)="showBook(book)" class="book" *ngFor="let book of booksFiltered" [book]="book"></app-book>
+    <app-book id="book" (click)="showBook(book)" class="book" *ngFor="let book of booksFiltered" [book]="book"></app-book>
   </div>
 </div>
