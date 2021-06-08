@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { AuthRoutingModule } from './auth-routing.module';
-import { AuthComponent } from './auth.component';
 import { BookListComponent } from './book-list/book-list.component';
 import { HeaderModule } from 'src/app/components/header/header.module';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -16,7 +15,6 @@ import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.
 
 @NgModule({
   declarations: [
-    AuthComponent,
     BookListComponent,
     BookDetailsComponent,
     ShoppingCartComponent
