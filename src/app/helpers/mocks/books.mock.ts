@@ -78,3 +78,14 @@ export const BooksFiltered = [
     updated_at: new Date("2020-05-07T03:05:01.219Z")
   }
 ];
+
+export const BookMock = {
+  id: 1,
+  author: "John Miedema",
+  title: "Slow reading",
+  image_url: "https://covers.openlibrary.org/b/id/5546156-L.jpg",
+  editor: "Litwin Books",
+  year: "2009",
+  genre: "no registra",
+  current_rent: null
+};
