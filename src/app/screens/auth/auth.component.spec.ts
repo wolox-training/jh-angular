@@ -3,6 +3,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { HeaderModule } from 'src/app/components/header/header.module';
 
 import { AuthComponent } from './auth.component';
+import { BookListComponent } from './book-list/book-list.component';
 
 describe('AuthComponent', () => {
   let component: AuthComponent;
@@ -10,7 +11,8 @@ describe('AuthComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AuthComponent ]
+      declarations: [ AuthComponent ],
+      imports: [HeaderModule, RouterTestingModule.withRoutes([{path: 'auth/books', component: BookListComponent}])]
     })
     .compileComponents();
   });

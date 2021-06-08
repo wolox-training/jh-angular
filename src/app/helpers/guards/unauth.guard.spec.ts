@@ -8,13 +8,15 @@ import { UnAuthGuard } from './unauth.guard';
 
 describe('UnAuthGuard', () => {
   let guard: UnAuthGuard;
+  let userService: UserService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [HttpClientTestingModule, RouterTestingModule.withRoutes([{ path: 'auth/books', component: BookListComponent }])],
+      imports: [HttpClientTestingModule, RouterTestingModule.withRoutes([{ path: 'unauth/books', component: BookListComponent }])],
       providers: [UserService]
     });
     guard = TestBed.inject(UnAuthGuard);
+    userService = TestBed.get(UserService);
   });
 
   it('should be created', () => {
@@ -22,12 +24,12 @@ describe('UnAuthGuard', () => {
   });
 
   it('should not be able to hit route unauth when user is logged in', () => {
-    localStorage.setItem('ACCESS_TOKEN', 'Byaslkdasdnxuaksaj-asas');
+    spyOn(userService, 'loggedIn').and.returnValue(true);
     expect(guard.canActivate()).toBeFalse();
   });
 
   it('should be able to hit route unauth when user is not logged in', () => {
-    localStorage.clear();
+    spyOn(userService, 'loggedIn').and.returnValue(false);
     expect(guard.canActivate()).toBeTrue();
   });
 });
