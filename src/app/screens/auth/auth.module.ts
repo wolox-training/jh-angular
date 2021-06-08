@@ -11,13 +11,15 @@ import { BooksService } from 'src/app/services/books.service';
 import { BookModule } from 'src/app/components/book/book.module';
 import { BookDetailsComponent } from './book-details/book-details.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
 
 
 @NgModule({
   declarations: [
     AuthComponent,
     BookListComponent,
-    BookDetailsComponent
+    BookDetailsComponent,
+    ShoppingCartComponent
   ],
   imports: [
     CommonModule,
