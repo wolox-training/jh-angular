@@ -51,7 +51,6 @@ export class SignInComponent implements OnInit {
      localStorage.setItem('ACCESS_TOKEN', res.headers.get('access-token'));
      this.router.navigate(['books']);
     }, error => {
-      console.error(error);
       this.invalidCredetials = true;
     });
   }

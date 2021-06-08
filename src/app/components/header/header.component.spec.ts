@@ -34,6 +34,7 @@ describe('HeaderComponent', () => {
   });
 
   it('should session logout and remove access token', () => {
+    localStorage.setItem('ACCESS_TOKEN', 'g5fIk2oyzJma-QmnyIpLJg');
     const button: HTMLElement = fixture.debugElement.nativeElement.querySelector('#btn-logout');
     button.click();
 
