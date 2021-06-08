@@ -3,7 +3,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ActivatedRoute, convertToParamMap } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 import { of } from 'rxjs';
-import { BookMock } from 'src/app/helpers/mocks/books.mock';
+import { BookMockResponse } from 'src/app/helpers/mocks/books.mock';
 import { BooksService } from 'src/app/services/books.service';
 
 import { BookDetailsComponent } from './book-details.component';
@@ -53,11 +53,11 @@ describe('BookDetailsComponent', () => {
   });
 
   it('should getBook with by ID', () => {
-    spyOn(booksService, 'getBook').and.returnValue(of(BookMock));
+    spyOn(booksService, 'getBook').and.returnValue(of(BookMockResponse));
     component.ngOnInit();
     fixture.detectChanges();
-    booksService.getBook(BookMock.id).subscribe(res => {
-      expect(res).toEqual(BookMock);
+    booksService.getBook(BookMockResponse.id).subscribe(res => {
+      expect(res).toEqual(BookMockResponse);
     });
   });
 });
