@@ -15,8 +15,8 @@ describe('HeaderComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [ HeaderComponent ],
       imports: [RouterTestingModule.withRoutes([
-        { path: 'sign-up', component: SignUpComponent },
-        { path: 'login', component: SignInComponent }
+        { path: 'unauth/sign-up', component: SignUpComponent },
+        { path: 'unauth/login', component: SignInComponent }
       ])]
     })
     .compileComponents();
