@@ -21,8 +21,8 @@ describe('SignUpComponent', () => {
       declarations: [SignUpComponent],
       imports: [HttpClientTestingModule, ReactiveFormsModule, FormModule,
         RouterTestingModule.withRoutes([
-          { path: 'sign-up', component: SignUpComponent },
-          { path: 'login', component: SignUpComponent }
+          { path: 'unauth/sign-up', component: SignUpComponent },
+          { path: 'unauth/login', component: SignUpComponent }
         ])],
       providers: [UserService]
     })
