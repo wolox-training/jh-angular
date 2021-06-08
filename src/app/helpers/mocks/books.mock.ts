@@ -89,3 +89,5 @@ export const BookMockResponse = {
   genre: "no registra",
   current_rent: null
 };
+
+export const BookMock = BooksFiltered[0];
