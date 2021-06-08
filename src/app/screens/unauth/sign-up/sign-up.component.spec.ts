@@ -104,7 +104,7 @@ describe('SignUpComponent', () => {
     button.click();
 
     userService.createUser(SignUpMock).subscribe(() => {
-      expect(spyRouter).toHaveBeenCalledWith(['auth/login']);
+      expect(spyRouter).toHaveBeenCalledWith(['unauth/login']);
     });
   });
 });
