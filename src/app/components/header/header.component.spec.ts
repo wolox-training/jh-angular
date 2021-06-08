@@ -1,8 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { Router } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
-import { SignInComponent } from 'src/app/screens/auth/sign-in/sign-in.component';
-import { SignUpComponent } from 'src/app/screens/auth/sign-up/sign-up.component';
+import { SignInComponent } from 'src/app/screens/unauth/sign-in/sign-in.component';
+import { SignUpComponent } from 'src/app/screens/unauth/sign-up/sign-up.component';
 
 import { HeaderComponent } from './header.component';
 
@@ -46,6 +46,6 @@ describe('HeaderComponent', () => {
     const button: HTMLElement = fixture.debugElement.nativeElement.querySelector('#btn-logout');
     button.click();
 
-    expect(spyRouter).toHaveBeenCalledWith(['auth/login']);
+    expect(spyRouter).toHaveBeenCalledWith(['unauth/login']);
   });
 });
