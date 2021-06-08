@@ -1,6 +1,6 @@
 <div class="card">
-  <img [src]="book.image_url" alt="" class="book-cover">
+  <img (click)="showBook()" [src]="book.image_url" alt="" class="book-cover">
   <p class="title">{{book.title}}</p>
   <p class="author">{{book.author}}</p>
-  <ul class="btn-add"> <span>+</span> </ul>
+  <ul (click)="addBookToCart()" class="btn-add"> <span>+</span> </ul>
 </div>

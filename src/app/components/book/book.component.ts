@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Book } from 'src/app/screens/auth/interfaces/book.interface';
 
 @Component({
@@ -8,9 +8,20 @@ import { Book } from 'src/app/screens/auth/interfaces/book.interface';
 })
 export class BookComponent implements OnInit {
   @Input() book!: Book;
+  @Output() addBookToCartEvent = new EventEmitter<Book>();
+  @Output() showBookEvent = new EventEmitter<Book>();
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  addBookToCart() {
+    this.addBookToCartEvent.emit(this.book);
+  }
+
+  showBook() {
+    this.showBookEvent.emit(this.book);
   }
 
 }
