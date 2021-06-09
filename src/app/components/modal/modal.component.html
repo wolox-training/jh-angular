@@ -1,0 +1,8 @@
+<ng-container *ngIf="display$ | async as display">
+  <section [class.open]="display === 'open'" (click)="close()">
+    <div class="dialog-header flex">
+      <span class="dialog-title">{{title}}</span>
+      <a class="btn-close" (click)="close()"></a>
+    </div>
+  </section>
+</ng-container>
