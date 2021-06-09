@@ -13,7 +13,7 @@ export class HeaderComponent {
 
   sessionLogout(): void {
     localStorage.removeItem('ACCESS_TOKEN');
-    this.router.navigate(['unauth/login']);
+    this.router.navigate(['auth/login']);
   }
 
 }
