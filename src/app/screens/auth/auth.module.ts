@@ -11,6 +11,8 @@ import { BookModule } from 'src/app/components/book/book.module';
 import { BookDetailsComponent } from './book-details/book-details.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
+import { ModalModule } from 'src/app/components/modal/modal.module';
+import { ModalService } from 'src/app/services/modal.service';
 
 
 @NgModule({
@@ -26,8 +28,9 @@ import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.
     HttpClientModule,
     BookModule,
     MatDialogModule,
+    ModalModule
   ],
-  providers: [BooksService,
+  providers: [BooksService, ModalService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptorService,
