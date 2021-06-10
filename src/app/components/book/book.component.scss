@@ -24,22 +24,17 @@
   .btn-add {
     align-items: center;
     background-color: $atlantis;
+    border: hidden;
     border-radius: 12px;
     bottom: 5px;
+    color: $white;
     display: flex;
+    font-size: 28px;
     height: 24px;
+    justify-content: center;
     position: absolute;
     right: 5px;
     width: 24px;
-
-    span {
-      color: $white;
-      font-size: 28px;
-      height: 30px;
-      line-height: 31px;
-      text-align: center;
-      width: 30px;
-    }
   }
 
   .book-cover {
