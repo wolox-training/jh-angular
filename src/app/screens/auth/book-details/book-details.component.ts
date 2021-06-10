@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { BooksService } from 'src/app/services/books.service';
-import { Book } from '../interfaces/book.interface';
+import { BookRespose } from '../interfaces/book-response.interface';
 
 @Component({
   selector: 'app-book-details',
@@ -10,12 +10,12 @@ import { Book } from '../interfaces/book.interface';
 })
 export class BookDetailsComponent implements OnInit {
 
-  bookId: string | null;
-  book!: Book;
+  book!: BookRespose;
+  bookId: string;
   loaded = false;
 
   constructor(private route: ActivatedRoute, private bookService: BooksService) {
-    this.bookId = this.route.snapshot.paramMap.get('id');
+    this.bookId = this.route.snapshot.paramMap.get('id')!;
   }
 
   ngOnInit(): void {

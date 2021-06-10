@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { BookRespose } from '../screens/auth/interfaces/book-response.interface';
 import { BooksResponse } from '../screens/auth/interfaces/books-response.interface';
 
 @Injectable()
@@ -15,8 +16,8 @@ export class BooksService {
     return this.http.get<BooksResponse>(`${this.apiBaseUrl}/books`);
   }
 
-  getBook(id: any): Observable<any> {
-    return this.http.get(`${this.apiBaseUrl}/books/${id}`);
+  getBook(id: string): Observable<BookRespose> {
+    return this.http.get<BookRespose>(`${this.apiBaseUrl}/books/${id}`);
   }
 
 }
