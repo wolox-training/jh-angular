@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { BooksService } from 'src/app/services/books.service';
 import { ModalService } from 'src/app/services/modal.service';
-import { ShoppingCartComponent } from '../components/shopping-cart/shopping-cart.component';
 import { Book } from '../interfaces/book.interface';
 
 @Component({
@@ -17,7 +15,7 @@ export class BookListComponent implements OnInit {
   booksFiltered: Array<Book> = [];
   booksInCart: Array<Book> = [];
 
-  constructor(private bookService: BooksService, private router: Router, private matDialog: MatDialog, private modalService: ModalService) {
+  constructor(private bookService: BooksService, private router: Router, private modalService: ModalService) {
   }
 
   ngOnInit(): void {
@@ -49,11 +47,6 @@ export class BookListComponent implements OnInit {
   }
 
   showShoppingCart() {
-    // this.matDialog.open(ShoppingCartComponent, {
-    //   width: '900px',
-    //   height: '600px',
-    //   data: this.booksInCart
-    // })
     this.modalService.open();
   }
 
