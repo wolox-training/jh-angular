@@ -12,13 +12,15 @@
 
 .details-content {
   background-color: $white;
-  box-shadow: 4px 4px 10px 0 rgba(0,0,0,0.5);
+  box-shadow: 4px 4px 10px 0 $black-shadow;
   height: 420px;
   width: 900px;
 }
 
 .back {
   align-content: center;
+  background: unset;
+  border: unset;
   color: $black-russian;
   cursor: pointer;
   display: flex;
@@ -83,12 +85,12 @@
   }
 }
 
-p {
+.field {
   color: #828282;
   font-size: 20px;
   margin-top: 35px;
 
-  span {
+  .key {
     color: black;
     font-weight: 700;
   }
