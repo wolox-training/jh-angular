@@ -1,4 +1,4 @@
-<app-form [buttonLabel]="'Login'" [buttonRoute]="'/login'">
+<app-form [buttonLabel]="'Login'" [buttonRoute]="'../login'">
   <form class="content-form" [formGroup]="form" (ngSubmit)="signUp()">
     <div class="content-input" *ngFor="let field of fields">
       <label [for]="field.name">{{field.label}}</label>

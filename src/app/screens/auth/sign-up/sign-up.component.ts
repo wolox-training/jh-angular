@@ -8,7 +8,7 @@ import { fields, validators } from './constants';
 @Component({
   selector: 'app-sign-up',
   templateUrl: './sign-up.component.html',
-  styleUrls: ['./sign-up.component.scss']
+  styleUrls: ['./../auth.component.scss']
 })
 export class SignUpComponent implements OnInit {
 
@@ -65,7 +65,7 @@ export class SignUpComponent implements OnInit {
   signUp(): void {
     this.service.createUser(this.form.value).subscribe(() => {
       console.log('success');
-      this.route.navigate(['/login'])
+      this.route.navigate(['auth/login']);
     }, error => {
       console.error(error.error.errors.full_messages.join());
     });
