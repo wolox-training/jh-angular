@@ -6,15 +6,34 @@ export class ModalService {
 
   private display: Subject<'close' | 'open'> = new Subject();
 
-  watch(): Observable<'open' | 'close'> {
-    return this.display.asObservable();
-  }
-
-  open() {
-    this.display.next('open');
+  lockScroll() {
+    document.documentElement.style.getPropertyValue('--scroll-y');
+    const body = document.body;
+    body.style.height = '100vh';
+    body.style.overflowY = 'hidden';
   }
 
   close() {
     this.display.next('close');
+    this.unLockScroll();
+  }
+
+  open() {
+    this.display.next('open');
+    this.lockScroll();
+  }
+
+  unLockScroll() {
+    const body = document.body;
+    const scrollY = body.style.top;
+    body.style.position = '';
+    body.style.top = '';
+    body.style.height = '';
+    body.style.overflowY = '';
+    window.scrollTo(0, parseInt(scrollY || '0') * -1);
+  }
+
+  watch(): Observable<'open' | 'close'> {
+    return this.display.asObservable();
   }
 }
