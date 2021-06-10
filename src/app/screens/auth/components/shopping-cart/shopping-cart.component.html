@@ -1,9 +1,3 @@
-<div class="dialog-header flex">
-  <span class="dialog-title">Tu carrito de compras</span>
-  <a class="btn-close" (click)="close()">
-  </a>
-</div>
-
 <div class="dialog-content">
   <div class="book flex" *ngFor="let item of data">
     <p class="title">{{item.title}} - {{item.author}} </p>
@@ -15,4 +9,3 @@
     <p class="empty-message-2">Parece que no tenés items en tu carrito de compras.</p>
   </div>
 </div>
-
