@@ -12,7 +12,7 @@ describe('UnAuthGuard', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [HttpClientTestingModule, RouterTestingModule.withRoutes([{ path: 'unauth/books', component: BookListComponent }])],
+      imports: [HttpClientTestingModule, RouterTestingModule.withRoutes([{ path: 'auth/books', component: BookListComponent }])],
       providers: [UserService]
     });
     guard = TestBed.inject(UnAuthGuard);
