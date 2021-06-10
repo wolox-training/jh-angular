@@ -9,7 +9,6 @@ import { TokenInterceptorService } from 'src/app/services/token-interceptor.serv
 import { BooksService } from 'src/app/services/books.service';
 import { BookModule } from 'src/app/components/book/book.module';
 import { BookDetailsComponent } from './book-details/book-details.component';
-import { MatDialogModule } from '@angular/material/dialog';
 import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
 import { ModalModule } from 'src/app/components/modal/modal.module';
 import { ModalService } from 'src/app/services/modal.service';
@@ -27,7 +26,6 @@ import { ModalService } from 'src/app/services/modal.service';
     HeaderModule,
     HttpClientModule,
     BookModule,
-    MatDialogModule,
     ModalModule
   ],
   providers: [BooksService, ModalService,

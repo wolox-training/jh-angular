@@ -1,5 +1,4 @@
-import { Component, Inject, OnInit } from '@angular/core';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Component, Input } from '@angular/core';
 import { Book } from '../../interfaces/book.interface';
 
 @Component({
@@ -7,16 +6,9 @@ import { Book } from '../../interfaces/book.interface';
   templateUrl: './shopping-cart.component.html',
   styleUrls: ['./shopping-cart.component.scss']
 })
-export class ShoppingCartComponent implements OnInit {
+export class ShoppingCartComponent {
 
-  constructor(private dialogRef: MatDialogRef<ShoppingCartComponent>, @Inject(MAT_DIALOG_DATA) public data: Array<Book>) { }
-
-  ngOnInit(): void {
-  }
-
-  close() {
-    this.dialogRef.close();
-  }
+  @Input() data: Array<Book> = [];
 
   removeBook(book: Book) {
     const index = this.data.findIndex(x => x === book);

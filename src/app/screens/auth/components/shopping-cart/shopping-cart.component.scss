@@ -1,11 +1,9 @@
 @import "src/styles/lib/colors";
 
 .dialog-content {
-  height: 100%;
   margin: 50px 25px;
   max-height: 450px;
   overflow: auto;
-  align-items: center;
 
   .book {
     margin-top: 30px;
@@ -41,37 +39,21 @@
   }
 }
 
-.dialog-header {
-  .btn-close {
-    background: url("/assets/images/close.png");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: auto;
-    cursor: pointer;
-    height: 40px;
-    width: 40px;
-  }
-
-  .dialog-title {
-    font-size: 36px;
-  }
-}
-
 .dialog-no-content {
   height: 100%;
   margin: 50px 25px;
 }
 
 .empty-cart {
-  margin-top: 40px;
   align-items: center;
   display: flex;
   flex-direction: column;
+  margin-top: 40px;
 
   .empty-message-1 {
     font-size: 32px;
-    line-height: 38px;
     font-weight: 700;
+    line-height: 38px;
     margin-top: 90px;
   }
 
@@ -92,8 +74,4 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-}
-
-::ng-deep .mat-dialog-container {
-  overflow: unset;
 }
