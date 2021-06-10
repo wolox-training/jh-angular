@@ -49,4 +49,13 @@ describe('HeaderComponent', () => {
 
     expect(spyRouter).toHaveBeenCalledWith(['unauth/login']);
   });
+
+  it('should show shopping cart', () => {
+    const spyMethod = spyOn(component, 'showShoppingCart').and.callThrough();
+
+    const button: HTMLElement = fixture.debugElement.nativeElement.querySelector('#btn-shopping-cart');
+    button.click();
+
+    expect(spyMethod).toHaveBeenCalled();
+  })
 });
