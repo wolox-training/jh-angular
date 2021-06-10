@@ -3,9 +3,9 @@
     <div class="content-input" *ngFor="let field of fields">
       <label [for]="field.name">{{field.label}}</label>
       <input class="input-base" [type]="field.type" [formControlName]="field.formControlName">
-      <small class="alert" *ngIf="isControlHasError(field)"> {{field.errorMessage}}</small>
+      <small id="alert" class="alert" *ngIf="isControlHasError(field)"> {{field.errorMessage}}</small>
     </div>
-    <button class="btn btn-submit " type="submit" [disabled]="!form.valid" [ngClass]="{'disabled': !form.valid}">
+    <button id="btn-submit" class="btn btn-submit " type="submit" [disabled]="!form.valid" [ngClass]="{'disabled': !form.valid}">
       Sign Up</button>
   </form>
 </app-form>

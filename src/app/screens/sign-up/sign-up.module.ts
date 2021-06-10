@@ -5,6 +5,8 @@ import { SignUpRoutingModule } from './sign-up-routing.module';
 import { SignUpComponent } from './sign-up.component';
 import { FormModule } from 'src/app/components/form/form.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { UserService } from 'src/app/services/user.service';
 
 @NgModule({
   declarations: [SignUpComponent],
@@ -12,7 +14,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     CommonModule,
     FormModule,
     ReactiveFormsModule,
-    SignUpRoutingModule
-  ]
+    SignUpRoutingModule,
+    HttpClientModule
+  ],
+  providers: [UserService]
 })
 export class SignUpModule { }
