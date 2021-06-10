@@ -6,7 +6,7 @@ import { UserService } from 'src/app/services/user.service';
 
 import { AuthGuard } from './auth.guard';
 
-fdescribe('AuthGuard', () => {
+describe('AuthGuard', () => {
   let guard: AuthGuard;
   let userService: UserService;
 
