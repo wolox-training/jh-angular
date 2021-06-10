@@ -24,8 +24,10 @@
   .btn-add {
     align-items: center;
     background-color: $atlantis;
+    border: unset;
     border-radius: 12px;
     bottom: 5px;
+    cursor: pointer;
     display: flex;
     height: 24px;
     position: absolute;

@@ -1,7 +1,7 @@
 <div class="dialog-content">
   <div class="book flex" *ngFor="let item of data">
     <p class="title">{{item.title}} - {{item.author}} </p>
-    <span class="book-remove" (click)="removeBook(item)"></span>
+    <span id="book-remove" class="book-remove" (click)="removeBook(item)"></span>
   </div>
   <div class="empty-cart" *ngIf="data.length === 0">
     <img src="/assets/images/cart.png" alt="Cart">
