@@ -1,3 +1,5 @@
+import { BookRespose } from "src/app/screens/auth/interfaces/book-response.interface";
+import { Book } from "src/app/screens/auth/interfaces/book.interface";
 import { BooksResponse } from "src/app/screens/auth/interfaces/books-response.interface";
 
 export const BooksMockResponse: BooksResponse = {
@@ -54,7 +56,7 @@ export const BooksMockResponse: BooksResponse = {
   next_page: 0
 };
 
-export const BooksFiltered = [
+export const BooksFiltered: Array<Book> = [
   {
     id: 2,
     author: "Adam West,Jeff Rovin",
@@ -79,7 +81,7 @@ export const BooksFiltered = [
   }
 ];
 
-export const BookMockResponse = {
+export const BookMockResponse: BookRespose = {
   id: 1,
   author: "John Miedema",
   title: "Slow reading",
@@ -87,7 +89,7 @@ export const BookMockResponse = {
   editor: "Litwin Books",
   year: "2009",
   genre: "no registra",
-  current_rent: null
+  current_rent: ""
 };
 
 export const BookMock = BooksFiltered[0];
