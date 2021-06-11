@@ -6,6 +6,7 @@ import { of } from 'rxjs';
 import { BookModule } from 'src/app/components/book/book.module';
 import { BookMock, BooksFiltered, BooksMockResponse } from 'src/app/helpers/mocks/books.mock';
 import { BooksService } from 'src/app/services/books.service';
+import { ModalService } from 'src/app/services/modal.service';
 import { BookDetailsComponent } from '../book-details/book-details.component';
 
 import { BookListComponent } from './book-list.component';
@@ -15,13 +16,14 @@ describe('BookListComponent', () => {
   let fixture: ComponentFixture<BookListComponent>;
   let booksService: BooksService;
   let router: Router;
+  let modalService: ModalService;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [BookListComponent],
       imports: [HttpClientTestingModule, BookModule,
         RouterTestingModule.withRoutes([{ path: 'auth/book/:id', component: BookDetailsComponent }])],
-      providers: [BooksService]
+      providers: [BooksService, ModalService]
     })
       .compileComponents();
   });
@@ -31,6 +33,7 @@ describe('BookListComponent', () => {
     component = fixture.componentInstance;
     booksService = TestBed.get(BooksService);
     router = TestBed.get(Router);
+    modalService = TestBed.inject(ModalService);
     fixture.detectChanges();
   });
 
@@ -71,8 +74,15 @@ describe('BookListComponent', () => {
     const spyRouter = spyOn(router, 'navigate').and.callThrough();
     const firstBook = BooksMockResponse.page[0];
     component.showBook(firstBook);
-
     expect(spyRouter).toHaveBeenCalledWith(['auth/book/' + firstBook.id]);
+  });
+
+  it('should add book to list of shopping cart', () => {
+    const spyListShoppingCart = spyOn(component.booksInCart, 'push').and.callThrough();
+    component.addBookToCart(BookMock);
+
+    expect(spyListShoppingCart).toHaveBeenCalledWith(BookMock);
+    expect(component.booksInCart[0]).toEqual(BookMock);
   });
 
   it('should add book to list of shopping cart', () => {
