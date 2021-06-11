@@ -74,7 +74,7 @@
 
       &::after {
         background-color: $earls-green;
-        content: '';
+        content: "";
         bottom: 0;
         height: 4px;
         left: 0;
@@ -86,12 +86,12 @@
 }
 
 .field {
-  color: #828282;
+  color: $gray;
   font-size: 20px;
   margin-top: 35px;
 
   .key {
-    color: black;
+    color: $black-russian;
     font-weight: 700;
   }
 }
