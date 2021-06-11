@@ -19,10 +19,18 @@
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
+      "i18n": {
+        "sourceLocale": "es",
+        "locales": {
+          "en": "src/locale/messages.en.xlf",
+          "fr": "src/locale/messages.fr.xlf"
+        }
+      },
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "aot": true,
             "outputPath": "dist/wolox-books",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -40,6 +48,14 @@
             "scripts": []
           },
           "configurations": {
+            "en": {
+              "localize": ["en"],
+              "main": "src/main.ts"
+            },
+            "fr": {
+              "localize": ["fr"],
+              "main": "src/main.ts"
+            },
             "production": {
               "budgets": [
                 {
@@ -75,6 +91,12 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
+            "en": {
+              "browserTarget": "wolox-books:build:en"
+            },
+            "fr": {
+              "browserTarget": "wolox-books:build:fr"
+            },
             "production": {
               "browserTarget": "wolox-books:build:production"
             },
