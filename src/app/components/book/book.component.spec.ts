@@ -32,5 +32,5 @@ describe('BookComponent', () => {
 
     expect(title.textContent).toEqual(BookMock.title);
     expect(author.textContent).toEqual(BookMock.author);
-  })
+  });
 });
