@@ -1,8 +1,8 @@
 <div class="content">
-  <button class="back" [routerLink]="'/auth/books'">
+  <a class="back" [routerLink]="'/auth/books'">
     <img src="/assets/images/back-arrow.png" alt="Back">
     <span>Atrás</span>
-  </button>
+  </a>
   <div class="details-content">
     <div class="details" *ngIf="loaded">
       <img class="book-cover" [src]="book.image_url" alt="Book cover">
