@@ -56,7 +56,7 @@ describe('BookDetailsComponent', () => {
     spyOn(booksService, 'getBook').and.returnValue(of(BookMockResponse));
     component.ngOnInit();
     fixture.detectChanges();
-    booksService.getBook(BookMockResponse.id).subscribe(res => {
+    booksService.getBook(BookMockResponse.id.toString()).subscribe(res => {
       expect(res).toEqual(BookMockResponse);
     });
   });
