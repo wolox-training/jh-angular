@@ -24,4 +24,13 @@ describe('BookComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should load data in template', () => {
+    component.book = BookMock;
+    const title: HTMLElement = fixture.debugElement.nativeElement.querySelector('.title');
+    const author: HTMLElement = fixture.debugElement.nativeElement.querySelector('.author');
+
+    expect(title.textContent).toEqual(BookMock.title);
+    expect(author.textContent).toEqual(BookMock.author);
+  })
 });
