@@ -8,5 +8,4 @@ import { Book } from 'src/app/screens/auth/interfaces/book.interface';
 })
 export class BookComponent {
   @Input() book!: Book;
-
 }
