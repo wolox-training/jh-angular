@@ -14,9 +14,8 @@ export class UnAuthGuard implements CanActivate {
     if (this._userService.loggedIn()) {
       this._router.navigate(['auth/books']);
       return false;
-    } else {
-      return true;
     }
+    return true;
   }
 
 }
