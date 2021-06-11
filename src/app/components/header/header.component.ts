@@ -1,6 +1,7 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { Book } from 'src/app/screens/auth/interfaces/book.interface';
+import { ModalService } from 'src/app/services/modal.service';
 
 @Component({
   selector: 'app-header',
@@ -10,9 +11,8 @@ import { Book } from 'src/app/screens/auth/interfaces/book.interface';
 export class HeaderComponent {
 
   @Input() books: Array<Book> = [];
-  @Output() showShoppingCartEvent = new EventEmitter<any>();
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private modalService: ModalService) {
   }
 
   sessionLogout(): void {
@@ -21,7 +21,7 @@ export class HeaderComponent {
   }
 
   showShoppingCart() {
-    this.showShoppingCartEvent.emit();
+    this.modalService.open();
   }
 
 }
