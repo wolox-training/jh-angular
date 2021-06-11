@@ -1,5 +1,7 @@
+@import "src/styles/lib/colors";
+
 section {
-  background: rgba(0, 0, 0, 0.2);
+  background: $black-shadow;
   bottom: 0;
   display: block;
   left: 0;
@@ -10,10 +12,10 @@ section {
   transition: opacity 250ms ease-in;
   visibility: hidden;
 
-  > div {
-    background: white;
+  .modal {
+    background: $white;
     border-radius: 8px;
-    box-shadow: 0 0 8px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 8px 4px $black-shadow;
     height: 600px;
     left: 50%;
     padding: 30px;
@@ -36,6 +38,7 @@ section {
     background-position: center;
     background-repeat: no-repeat;
     background-size: auto;
+    border: hidden;
     cursor: pointer;
     height: 40px;
     width: 40px;
