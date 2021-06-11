@@ -1,18 +1,19 @@
 <div class="content">
   <a class="back" [routerLink]="'/auth/books'">
     <img src="/assets/images/back-arrow.png" alt="Back">
-    <span>Atrás</span>
+    <span i18n>Atrás</span>
   </a>
   <div class="details-content">
     <div class="details" *ngIf="loaded">
       <img class="book-cover" [src]="book.image_url" alt="Book cover">
       <div class="book-info">
         <div class="book-title">
-          <h1>{{book.title}}</h1> <h2>({{book.genre}})</h2>
+          <span class="title">{{book.title}}</span>
+          <span class="genre">({{book.genre}})</span>
         </div>
-        <p class="field"><span class="key">Autor del libro: </span> {{book.author}}</p>
-        <p class="field"><span class="key">Editorial: </span> {{book.editor}}</p>
-        <p class="field"><span class="key">Año de publicación: </span>  {{book.year}}</p>
+        <p class="field"><span class="key" i18n>Autor del libro: </span> {{book.author}}</p>
+        <p class="field"><span class="key" i18n>Editorial: </span> {{book.editor}}</p>
+        <p class="field"><span class="key" i18n>Año de publicación: </span>  {{book.year}}</p>
       </div>
     </div>
   </div>
