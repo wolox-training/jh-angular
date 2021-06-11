@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 import { SignInComponent } from 'src/app/screens/unauth/sign-in/sign-in.component';
 import { SignUpComponent } from 'src/app/screens/unauth/sign-up/sign-up.component';
+import { ModalService } from 'src/app/services/modal.service';
 
 import { HeaderComponent } from './header.component';
 
@@ -10,6 +11,7 @@ describe('HeaderComponent', () => {
   let component: HeaderComponent;
   let fixture: ComponentFixture<HeaderComponent>;
   let router: Router;
+  let modalService: ModalService;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -17,7 +19,8 @@ describe('HeaderComponent', () => {
       imports: [RouterTestingModule.withRoutes([
         { path: 'unauth/sign-up', component: SignUpComponent },
         { path: 'unauth/login', component: SignInComponent }
-      ])]
+      ])],
+      providers: [ModalService]
     })
     .compileComponents();
   });
@@ -26,6 +29,7 @@ describe('HeaderComponent', () => {
     fixture = TestBed.createComponent(HeaderComponent);
     component = fixture.componentInstance;
     router = TestBed.get(Router);
+    modalService = TestBed.inject(ModalService);
     fixture.detectChanges();
   });
 
@@ -57,5 +61,12 @@ describe('HeaderComponent', () => {
     button.click();
 
     expect(spyMethod).toHaveBeenCalled();
-  })
+  });
+
+  it('should show modal of shopping cart', () => {
+    const spyModalService = spyOn(modalService, 'open').and.callThrough();
+    component.showShoppingCart();
+
+    expect(spyModalService).toHaveBeenCalled();
+  });
 });
