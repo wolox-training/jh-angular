@@ -4,16 +4,17 @@
   align-content: center;
   display: flex;
   justify-content: space-evenly;
+  margin-right: 10%;
 }
 
 .btn-cart {
-  height: 24px;
+  height: 25px;
   margin-right: 30px;
-  width: 22px;
+  width: 20px;
 
   .icon-shopping-cart {
-    height: 24px;
-    width: 22px;
+    height: 25px;
+    width: 20px;
   }
 
   &:hover {
@@ -23,7 +24,8 @@
 
 .btn-logout {
   background-color: unset;
-  height: 18px;
+  height: 20px;
+  width: 80px;
   font-size: 18px;
   line-height: 21px;
 }
