@@ -11,8 +11,7 @@ export class ShoppingCartComponent {
   @Input() data: Array<Book> = [];
 
   removeBook(book: Book) {
-    const index = this.data.findIndex(x => x === book);
-    this.data.splice(index, 1);
+    this.data.splice(this.data.findIndex(x => x === book), 1);
   }
 
 }
