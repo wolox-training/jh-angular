@@ -49,6 +49,8 @@ export class SignInComponent implements OnInit {
     this.invalidCredetials = false;
     this.service.signIn(this.form.value as SignIn).subscribe((res) => {
      localStorage.setItem('ACCESS_TOKEN', res.headers.get('access-token'));
+     localStorage.setItem('CLIENT', res.headers.get('client'));
+     localStorage.setItem('UID', res.headers.get('uid'));
      this.router.navigate(['auth']);
     }, error => {
       this.invalidCredetials = true;

@@ -1,0 +1,56 @@
+@import "src/styles/lib/colors";
+
+.card {
+  background-color: $white;
+  box-shadow: 4px 4px 10px 0 $black-shadow;
+  height: 300px;
+  position: relative;
+  width: 200px;
+
+  .author {
+    color: $gray;
+    font-size: 14px;
+    margin: 5px 0 0 30px;
+  }
+
+  .author,
+  .title {
+    line-height: 18px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .btn-add {
+    align-items: center;
+    background-color: $atlantis;
+    border: hidden;
+    border-radius: 12px;
+    bottom: 5px;
+    color: $white;
+    display: flex;
+    font-size: 28px;
+    height: 25px;
+    justify-content: center;
+    position: absolute;
+    right: 5px;
+    width: 25px;
+  }
+
+  .book-cover {
+    height: 200px;
+    margin: 30px 30px 0;
+    position: relative;
+    width: 140px;
+  }
+
+  .title {
+    font-weight: 700;
+    margin: 10px 30px 0;
+  }
+
+  &:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+  }
+}

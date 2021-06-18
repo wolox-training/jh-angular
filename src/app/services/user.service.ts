@@ -25,4 +25,16 @@ export class UserService {
     return !!localStorage.getItem('ACCESS_TOKEN');
   }
 
+  getToken() {
+    return localStorage.getItem('ACCESS_TOKEN');
+  }
+
+  getClient() {
+    return localStorage.getItem('CLIENT');
+  }
+
+  getUid() {
+    return localStorage.getItem('UID');
+  }
+
 }
