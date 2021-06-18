@@ -1,4 +1,10 @@
 <header class="header">
   <img class="logo-wolox" src="assets/images/logo_wolox.svg" alt="Logo Wolox">
-  <button id="btn-logout" class="btn btn-logout" (click)="sessionLogout()">Logout</button>
+  <div class="btns">
+    <button id="btn-shopping-cart" class="btn btn-cart" (click)="showShoppingCart()">
+      <img class="icon-shopping-cart" src="/assets/images/cart.svg" alt="Shopping Cart">
+      <span class="badge">{{books.length}}</span>
+    </button>
+    <button id="btn-logout" class="btn btn-logout" (click)="sessionLogout()">Logout</button>
+  </div>
 </header>

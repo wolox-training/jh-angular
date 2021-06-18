@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { HeaderModule } from './components/header/header.module';
 import { AuthGuard } from './helpers/guards/auth.guard';
 import { UserService } from './services/user.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { UserService } from './services/user.service';
     BrowserModule,
     AppRoutingModule,
     HeaderModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule
   ],
   providers: [UserService, AuthGuard, UnAuthGuard],
   bootstrap: [AppComponent]

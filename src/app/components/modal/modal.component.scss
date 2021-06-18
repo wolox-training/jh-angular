@@ -1,0 +1,62 @@
+@import "src/styles/lib/colors";
+
+section {
+  background: $black-shadow;
+  bottom: 0;
+  display: block;
+  left: 0;
+  opacity: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: opacity 250ms ease-in;
+  visibility: hidden;
+
+  .modal {
+    background: $white;
+    border-radius: 8px;
+    box-shadow: 0 0 8px 4px $black-shadow;
+    height: 600px;
+    left: 50%;
+    padding: 30px;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 900px;
+  }
+
+  &.open {
+    visibility: inherit;
+    opacity: 1;
+    overflow: hidden;
+  }
+}
+
+.dialog-header {
+  .btn-close {
+    background: url("/assets/images/close.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: auto;
+    border: hidden;
+    cursor: pointer;
+    height: 40px;
+    width: 40px;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  .dialog-title {
+    font-size: 36px;
+    line-height: 42px;
+  }
+}
+
+.flex {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}

@@ -1,0 +1,11 @@
+<ng-container *ngIf="display$ | async as display">
+  <section [class.open]="display === 'open'">
+    <div class="modal">
+      <div class="dialog-header flex">
+        <span class="dialog-title">{{title}}</span>
+        <button id="btn-shopping-cart" class="btn-close" (click)="close()"></button>
+      </div>
+      <ng-content #content></ng-content>
+    </div>
+  </section>
+</ng-container>

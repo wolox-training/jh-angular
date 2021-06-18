@@ -1,0 +1,77 @@
+@import "src/styles/lib/colors";
+
+.dialog-content {
+  margin: 50px 25px;
+  max-height: 450px;
+  overflow: auto;
+
+  .book {
+    margin-top: 30px;
+    padding-bottom: 30px;
+    position: relative;
+
+    .book-remove {
+      background: url("/assets/images/trash.png");
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: auto;
+      cursor: pointer;
+      height: 30px;
+      width: 30px;
+    }
+
+    .title {
+      font-size: 22px;
+      line-height: 26px;
+      margin: 0;
+    }
+
+    &::after {
+      background-color: $silver;
+      bottom: 0;
+      content: "";
+      height: 2px;
+      left: 0;
+      margin-top: 30px;
+      position: absolute;
+      width: 100%;
+    }
+  }
+}
+
+.dialog-no-content {
+  height: 100%;
+  margin: 50px 25px;
+}
+
+.empty-cart {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin-top: 40px;
+
+  .empty-message-1 {
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 38px;
+    margin-top: 90px;
+  }
+
+  .empty-message-2 {
+    font-size: 24px;
+    line-height: 28px;
+    margin-top: 25px;
+  }
+
+  img {
+    height: 170px;
+    width: 230px;
+  }
+}
+
+.flex {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}

@@ -1,0 +1,11 @@
+<div class="dialog-content">
+  <div class="book flex" *ngFor="let item of data">
+    <p class="title">{{item.title}} - {{item.author}} </p>
+    <span id="book-remove" class="book-remove" (click)="removeBook(item)"></span>
+  </div>
+  <div class="empty-cart" *ngIf="data.length === 0">
+    <img src="/assets/images/cart.png" alt="Cart">
+    <p class="empty-message-1">EL CARRITO ESTÁ VACÍO</p>
+    <p class="empty-message-2">Parece que no tenés items en tu carrito de compras.</p>
+  </div>
+</div>

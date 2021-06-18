@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { BooksService } from 'src/app/services/books.service';
+import { ModalService } from 'src/app/services/modal.service';
 import { Book } from '../interfaces/book.interface';
 
 @Component({
@@ -12,12 +13,17 @@ export class BookListComponent implements OnInit {
 
   books: Array<Book> = [];
   booksFiltered: Array<Book> = [];
+  booksInCart: Array<Book> = [];
 
-  constructor(private bookService: BooksService, private router: Router) {
+  constructor(private bookService: BooksService, private router: Router, private modalService: ModalService) {
   }
 
   ngOnInit(): void {
     this.getBooks();
+  }
+
+  addBookToCart(book: Book) {
+    this.booksInCart.push(book);
   }
 
   getBooks() {
@@ -39,5 +45,4 @@ export class BookListComponent implements OnInit {
   showBook(book: Book) {
     this.router.navigate([`auth/book/${book.id}`])
   }
-
 }
