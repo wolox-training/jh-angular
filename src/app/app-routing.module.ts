@@ -1,14 +1,20 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { BooksComponent } from './screens/books/books.component';
+import { AuthGuard } from './helpers/guards/auth.guard';
+import { UnAuthGuard } from './helpers/guards/unauth.guard';
 
 const routes: Routes = [
   { path: '', redirectTo: 'auth', pathMatch: 'full' },
   {
-    path: 'auth',
-    loadChildren: () => import('./screens/auth/auth.module').then(m => m.AuthModule)
+    path: 'unauth',
+    loadChildren: () => import('./screens/unauth/unauth.module').then(m => m.UnAuthModule),
+    canActivate: [UnAuthGuard]
   },
-  { path: 'books', component: BooksComponent },
+  {
+    path: 'auth',
+    loadChildren: () => import('./screens/auth/auth.module').then(m => m.AuthModule),
+    canActivate: [AuthGuard]
+  },
 ];
 
 @NgModule({

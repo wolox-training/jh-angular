@@ -1,22 +1,25 @@
+import { UnAuthGuard } from './helpers/guards/unauth.guard';
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderModule } from './components/header/header.module';
-import { BooksComponent } from './screens/books/books.component';
+import { AuthGuard } from './helpers/guards/auth.guard';
+import { UserService } from './services/user.service';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    BooksComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HeaderModule
+    HeaderModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [UserService, AuthGuard, UnAuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

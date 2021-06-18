@@ -65,7 +65,7 @@ export class SignUpComponent implements OnInit {
   signUp(): void {
     this.service.createUser(this.form.value).subscribe(() => {
       console.log('success');
-      this.route.navigate(['auth/login']);
+      this.route.navigate(['unauth/login']);
     }, error => {
       console.error(error.error.errors.full_messages.join());
     });

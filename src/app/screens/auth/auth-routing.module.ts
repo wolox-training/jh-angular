@@ -1,12 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { SignInComponent } from './sign-in/sign-in.component';
-import { SignUpComponent } from './sign-up/sign-up.component';
+import { AuthComponent } from './auth.component';
+import { BookListComponent } from './book-list/book-list.component';
 
 const routes: Routes = [
-  { path: '', pathMatch: 'full', redirectTo: 'sign-up' },
-  { path: 'sign-up', component: SignUpComponent },
-  { path: 'login', component: SignInComponent },
+  {
+    path: '', component: AuthComponent,
+    children: [
+      { path: 'books', component: BookListComponent },
+    ]
+  },
 ];
 
 @NgModule({
